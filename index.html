@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Natalia Martínez - Orfebrería Sustentable</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500;1,600&family=Montserrat:wght@300;400&display=swap"
+          rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"/>
+
+    <!-- Tailwind Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'rgb(var(--color-background) / <alpha-value>)',
+                        main: 'rgb(var(--color-main) / <alpha-value>)',
+                        secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+                        accent: 'rgb(var(--color-accent) / <alpha-value>)',
+                        title: 'rgb(var(--color-title) / <alpha-value>)'
+                    },
+                    fontFamily: {
+                        primary: ['"Cormorant Garamond"', 'serif'],
+                        secondary: ['Cinzel', 'serif'],
+                        body: ['Montserrat', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1.5s ease-out forwards'
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': {opacity: '0', transform: 'translateY(30px)'},
+                            '100%': {opacity: '1', transform: 'translateY(0)'}
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Variables CSS para ambos temas (Soporte RGB para opacidad en Tailwind) */
+        :root {
+            --color-background: 245 241 232; /* #F5F1E8 */
+            --color-main: 41 39 37; /* #292725 */
+            --color-secondary: 183 180 174; /* #B7B4AE */
+            --color-accent: 167 101 69; /* #A76545 */
+            --color-title: 90 64 53; /* #5A4035 */
+
+            --expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dark {
+            --color-background: 22 20 18; /* #161412 (Gris muy oscuro/cálido) */
+            --color-main: 230 226 216; /* #E6E2D8 (Blanco hueso/suave) */
+            --color-secondary: 74 69 64; /* #4A4540 (Gris cálido medio) */
+            --color-accent: 184 115 82; /* #B87352 (Cobre un poco más vivo para contraste) */
+            --color-title: 203 186 176; /* #CBBAB0 (Beige cobrizo tenue) */
+        }
+
+        body {
+            background-color: rgb(var(--color-background));
+            overflow-x: hidden;
+        }
+
+        /* Efecto Underline Animado (Adaptable al tema) */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: rgb(var(--color-accent));
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Imagen de fondo del Hero */
+        .hero-bg {
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAnnGI_qZFgZUvyZ2OtbyRIKPewq676EL2cXWOxm3TUqhB7zmGuxYAAyF5Osa8SrrKqLcQ_Bm4e2GAGcZbsouuZML6Wbcnw6UAhHYh2YEW-WZmxk-JAG0bsZIrmQO44zexKWR__dCpPBFl0xTvjnLDmtRF9ABMCvZ9ew7ySJkJA51lbqJblBx5etLfVu9AXmSea5yBIxbSBzQXIo0bcYBTazdc4eYOWhO4Q7KzraZ5SoE38TQFEb8RG');
+        }
+
+        /* -------------------------------------
+           View Transitions API - Toggle Animation
+           ------------------------------------- */
+        ::view-transition-group(root) {
+            animation-duration: 0.7s;
+            animation-timing-function: var(--expo-out);
+        }
+
+        ::view-transition-new(root) {
+            animation-name: reveal-light;
+            animation-fill-mode: both;
+        }
+
+        ::view-transition-old(root),
+        .dark::view-transition-old(root) {
+            animation: none;
+            animation-fill-mode: both;
+            z-index: -1;
+        }
+
+        .dark::view-transition-new(root) {
+            animation-name: reveal-dark;
+            animation-fill-mode: both;
+        }
+
+        @keyframes reveal-dark {
+            from {
+                clip-path: polygon(50% -71%, -50% 71%, -50% 71%, 50% -71%);
+            }
+            to {
+                clip-path: polygon(50% -71%, -50% 71%, 50% 171%, 171% 50%);
+            }
+        }
+
+        @keyframes reveal-light {
+            from {
+                clip-path: polygon(171% 50%, 50% 171%, 50% 171%, 171% 50%);
+            }
+            to {
+                clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-secondary transition-colors duration-300">
+    <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-[1440px] mx-auto">
+
+        <!-- Extremo Izquierdo: Botón Dark Mode & Mobile Menu -->
+        <div class="flex-1 flex justify-start items-center space-x-6">
+            <!-- BOTÓN TOGGLE (Modo Oscuro) -->
+            <button id="theme-toggle" aria-label="Toggle Appearance"
+                    class="text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
+                <span class="material-symbols-outlined text-[22px]" data-icon="contrast">contrast</span>
+            </button>
+            <button aria-label="Open Menu"
+                    class="md:hidden text-secondary hover:text-accent transition-colors duration-300">
+                <span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
+            </button>
+        </div>
+
+        <!-- Centro Exacto: Enlaces de navegación -->
+        <div class="hidden md:flex flex-1 justify-center">
+            <ul class="flex space-x-12 font-secondary text-[11px] tracking-[0.25em] uppercase text-main">
+                <li><a class="nav-link pb-1 text-accent" href="#">Inicio</a></li>
+                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="#taller">Taller</a>
+                </li>
+                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="#clases">Clases</a>
+                </li>
+                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300"
+                       href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Extremo Derecho: Logotipo Tipográfico -->
+        <div class="flex-1 flex justify-end">
+            <span class="font-primary italic text-3xl md:text-4xl text-title font-medium tracking-wide">Natalia Martínez</span>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="relative pt-24 h-[90vh] flex items-center justify-center overflow-hidden">
+    <!-- Background overlay -->
+    <div class="absolute inset-0 z-0">
+        <div class="hero-bg bg-cover bg-center w-full h-full opacity-50 mix-blend-multiply"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-background/50 to-background/10"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center px-6 flex flex-col items-center max-w-4xl">
+        <h1 class="font-primary italic text-6xl md:text-[6rem] text-title mb-6 tracking-tight leading-[0.95] opacity-0 animate-fade-in-up"
+            style="animation-delay: 0.2s;">
+            Natalia Martínez
+        </h1>
+        <h2 class="font-secondary text-sm md:text-base text-title tracking-[0.3em] uppercase opacity-0 animate-fade-in-up"
+            style="animation-delay: 0.8s;">
+            Joyería Sustentable <span class="text-accent mx-2">&</span> Instructora Orfebre
+        </h2>
+    </div>
+</header>
+
+<!-- Main Section -->
+<main class="flex-grow">
+
+    <!-- 50/50 Section (Taller) -->
+    <section class="py-32 px-6 md:px-12 max-w-[1280px] mx-auto" id="taller">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 items-center">
+
+            <!-- Left Column: Image -->
+            <div class="md:col-span-5 relative group">
+                <div class="relative w-full aspect-[4/5] overflow-hidden bg-secondary/10">
+                    <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale-[20%] sepia-[15%] dark:sepia-[10%] dark:opacity-85 mix-blend-luminosity dark:mix-blend-normal"
+                         alt="Artesana trabajando en taller"
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCdfOMGLC2pHl3Y-mNZepNmoLTWN4Goc_3ZnxIAY6Mb0AiZiLfbbytoLmr77nwNnAaqng7SvwywQ3y7V3ETmm6W5bfco_5HU6bFwjbP8_z15hJQuamtr46XK3BdX7uaNpX1wFndBW6hHhiKiCPE7S-KTfiI-KGT0sOCN5Fq8kgZwQt6AjwetkU7Sm4BrBPRg1EMrBIQTNnPFSa5mc-rZ-qVQsiWA0DTMXDAo19SjAqLp82l1ypXZaq"/>
+                    <!-- Decorational frame to add luxury feel -->
+                    <div class="absolute inset-0 border border-secondary/40 m-4 pointer-events-none transition-colors"></div>
+                </div>
+            </div>
+
+            <!-- Right Column: Text -->
+            <div class="md:col-span-7 flex flex-col justify-center space-y-10">
+                <div>
+                    <p class="font-secondary text-accent text-xs tracking-[0.2em] uppercase mb-4">El Taller</p>
+                    <h3 class="font-primary italic text-5xl md:text-6xl text-title">Raíces & Materia</h3>
+                </div>
+
+                <div class="font-body text-main leading-relaxed space-y-6 text-[15px] md:text-[16px] max-w-xl">
+                    <p>
+                        Inspirada por la geografía indómita de Chile, cada pieza nace de un diálogo respetuoso con los
+                        materiales. Rescato técnicas tradicionales para forjar metales nobles, priorizando plata
+                        reciclada y cobres locales.
+                    </p>
+                    <p>
+                        Mi trabajo no solo busca la belleza estética, sino una conexión tangible con la tierra. Es una
+                        celebración de lo imperfecto, donde la huella del martillo es la firma del artesano.
+                    </p>
+                    <p>
+                        Además de crear, mi mayor pasión es transmitir este oficio ancestral, guiando a nuevos talentos
+                        a encontrar su propia voz a través del metal.
+                    </p>
+                </div>
+
+                <div class="pt-6">
+                    <button class="bg-transparent border border-secondary text-main font-secondary text-[11px] px-10 py-4 uppercase tracking-[0.2em] hover:bg-accent hover:border-accent hover:text-background transition-all duration-500 rounded-none">
+                        Descubrir Colección
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Class Info Section -->
+    <section class="py-32 px-6 md:px-12 max-w-[1280px] mx-auto" id="clases">
+        <div class="text-center mb-24">
+            <h2 class="font-primary italic text-5xl md:text-6xl text-title mb-6">Aprende el Oficio</h2>
+            <p class="font-body text-[15px] text-main max-w-2xl mx-auto">Cursos personalizados para todos los niveles en
+                un ambiente de creación consciente y respetuosa.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+            <!-- Class Card 1 -->
+            <div class="flex flex-col border-t border-secondary pt-10 group">
+                <h4 class="font-secondary text-xl tracking-[0.1em] text-title mb-6">Iniciación</h4>
+                <ul class="font-body text-[14px] text-main space-y-4 mb-12 flex-grow">
+                    <li class="flex items-start">
+                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        Fundamentos del metal
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        Uso de herramientas básicas
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        Creación de primera argolla
+                    </li>
+                </ul>
+                <button class="border-b border-secondary text-main font-secondary text-[10px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors text-left flex justify-between items-center group-hover:border-accent group-hover:text-accent w-max">
+                    Ver Detalles <span class="material-symbols-outlined text-[14px] ml-4">arrow_forward</span>
+                </button>
+            </div>
+
+            <!-- Class Card 2 -->
+            <div class="flex flex-col border-t border-secondary pt-10 group">
+                <h4 class="font-secondary text-xl tracking-[0.1em] text-title mb-6">Técnicas Avanzadas</h4>
+                <ul class="font-body text-[14px] text-main space-y-4 mb-12 flex-grow">
+                    <li class="flex items-start">
+                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        Engaste de piedras
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        Soldaduras complejas
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        Texturizados y pátinas
+                    </li>
+                </ul>
+                <button class="border-b border-secondary text-main font-secondary text-[10px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors text-left flex justify-between items-center group-hover:border-accent group-hover:text-accent w-max">
+                    Ver Detalles <span class="material-symbols-outlined text-[14px] ml-4">arrow_forward</span>
+                </button>
+            </div>
+
+            <!-- Class Card 3 -->
+            <div class="flex flex-col border-t border-secondary pt-10 group">
+                <h4 class="font-secondary text-xl tracking-[0.1em] text-title mb-6">Taller Libre</h4>
+                <ul class="font-body text-[14px] text-main space-y-4 mb-12 flex-grow">
+                    <li class="flex items-start">
+                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        Desarrollo de proyectos propios
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        Asesoría técnica personalizada
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        Acceso completo a maquinaria
+                    </li>
+                </ul>
+                <button class="border-b border-secondary text-main font-secondary text-[10px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors text-left flex justify-between items-center group-hover:border-accent group-hover:text-accent w-max">
+                    Ver Detalles <span class="material-symbols-outlined text-[14px] ml-4">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimal Contact Section -->
+    <section class="py-32 px-6 md:px-12 text-center" id="contacto">
+        <p class="font-secondary text-accent text-xs tracking-[0.2em] uppercase mb-6">Consultas & Encargos</p>
+        <h3 class="font-primary italic text-5xl md:text-6xl text-title mb-10">¿Hablamos?</h3>
+        <a class="font-body text-xl md:text-2xl text-main hover:text-accent transition-colors border-b border-transparent hover:border-accent pb-2 inline-block font-light"
+           href="mailto:hola@nataliamartinez.cl">hola@nataliamartinez.cl</a>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-background border-t border-secondary pt-16 pb-12 transition-colors duration-300">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center px-6 md:px-12 max-w-[1440px] mx-auto text-center md:text-left">
+
+        <!-- Left: Logo -->
+        <div class="font-primary italic text-3xl text-title md:justify-self-start">
+            Natalia Martínez
+        </div>
+
+        <!-- Center: Copyright -->
+        <div class="font-body text-[13px] text-main opacity-80 md:justify-self-center">
+            © 2024 Natalia Martínez. Orfebrería Sustentable.
+        </div>
+
+        <!-- Right: Social Links -->
+        <ul class="flex justify-center md:justify-end space-x-8 font-secondary text-[10px] tracking-[0.2em] uppercase text-main">
+            <li>
+                <a class="hover:text-accent transition-colors duration-300" href="#">Instagram</a>
+            </li>
+            <li>
+                <a class="hover:text-accent transition-colors duration-300" href="#">Pinterest</a>
+            </li>
+            <li>
+                <a class="hover:text-accent transition-colors duration-300" href="#">Términos</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+<!-- Script para Activar la Transición Diagonal al cambiar a Modo Oscuro -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById("theme-toggle");
+
+        function switchTheme() {
+            document.documentElement.classList.toggle("dark");
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            // Verifica si el navegador soporta View Transitions API
+            if (!document.startViewTransition) {
+                switchTheme();
+                return;
+            }
+
+            // Dispara la transición (y ejecuta el switch)
+            document.startViewTransition(switchTheme);
+        });
+    });
+</script>
+
+</body>
+</html>
