@@ -5,8 +5,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Natalia Martínez - Orfebrería Sustentable</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Hoja de Estilos CSS -->
+    <link rel="stylesheet" href="/dist/tailwind.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,135 +17,6 @@
     <!-- Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"/>
-
-    <!-- Tailwind Configuration -->
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'rgb(var(--color-background) / <alpha-value>)',
-                        main: 'rgb(var(--color-main) / <alpha-value>)',
-                        secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
-                        accent: 'rgb(var(--color-accent) / <alpha-value>)',
-                        title: 'rgb(var(--color-title) / <alpha-value>)'
-                    },
-                    fontFamily: {
-                        primary: ['"Cormorant Garamond"', 'serif'],
-                        secondary: ['Cinzel', 'serif'],
-                        body: ['Montserrat', 'sans-serif']
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 1.5s ease-out forwards'
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': {opacity: '0', transform: 'translateY(30px)'},
-                            '100%': {opacity: '1', transform: 'translateY(0)'}
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        /* Variables CSS para ambos temas (Soporte RGB para opacidad en Tailwind) */
-        :root {
-            --color-background: 245 241 232; /* #F5F1E8 */
-            --color-main: 41 39 37; /* #292725 */
-            --color-secondary: 183 180 174; /* #B7B4AE */
-            --color-accent: 167 101 69; /* #A76545 */
-            --color-title: 90 64 53; /* #5A4035 */
-
-            --expo-out: cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .dark {
-            --color-background: 22 20 18; /* #161412 (Gris muy oscuro/cálido) */
-            --color-main: 230 226 216; /* #E6E2D8 (Blanco hueso/suave) */
-            --color-secondary: 74 69 64; /* #4A4540 (Gris cálido medio) */
-            --color-accent: 184 115 82; /* #B87352 (Cobre un poco más vivo para contraste) */
-            --color-title: 203 186 176; /* #CBBAB0 (Beige cobrizo tenue) */
-        }
-
-        body {
-            background-color: rgb(var(--color-background));
-            overflow-x: hidden;
-        }
-
-        /* Efecto Underline Animado (Adaptable al tema) */
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 1px;
-            bottom: 0;
-            left: 0;
-            background-color: rgb(var(--color-accent));
-            transform-origin: bottom right;
-            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-        }
-
-        .nav-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        /* Imagen de fondo del Hero */
-        .hero-bg {
-            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAnnGI_qZFgZUvyZ2OtbyRIKPewq676EL2cXWOxm3TUqhB7zmGuxYAAyF5Osa8SrrKqLcQ_Bm4e2GAGcZbsouuZML6Wbcnw6UAhHYh2YEW-WZmxk-JAG0bsZIrmQO44zexKWR__dCpPBFl0xTvjnLDmtRF9ABMCvZ9ew7ySJkJA51lbqJblBx5etLfVu9AXmSea5yBIxbSBzQXIo0bcYBTazdc4eYOWhO4Q7KzraZ5SoE38TQFEb8RG');
-        }
-
-        /* -------------------------------------
-           View Transitions API - Toggle Animation
-           ------------------------------------- */
-        ::view-transition-group(root) {
-            animation-duration: 0.7s;
-            animation-timing-function: var(--expo-out);
-        }
-
-        ::view-transition-new(root) {
-            animation-name: reveal-light;
-            animation-fill-mode: both;
-        }
-
-        ::view-transition-old(root),
-        .dark::view-transition-old(root) {
-            animation: none;
-            animation-fill-mode: both;
-            z-index: -1;
-        }
-
-        .dark::view-transition-new(root) {
-            animation-name: reveal-dark;
-            animation-fill-mode: both;
-        }
-
-        @keyframes reveal-dark {
-            from {
-                clip-path: polygon(50% -71%, -50% 71%, -50% 71%, 50% -71%);
-            }
-            to {
-                clip-path: polygon(50% -71%, -50% 71%, 50% 171%, 171% 50%);
-            }
-        }
-
-        @keyframes reveal-light {
-            from {
-                clip-path: polygon(171% 50%, 50% 171%, 50% 171%, 171% 50%);
-            }
-            to {
-                clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
-            }
-        }
-    </style>
 </head>
 <body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
 
