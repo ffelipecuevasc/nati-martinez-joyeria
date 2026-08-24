@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Contacto - Natalia Martínez | Orfebrería Sustentable</title>
+
+  <!-- Hoja de Estilos CSS -->
+  <link rel="stylesheet" href="./static/css/output/tailwind.css"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-secondary/30 transition-colors duration-300">
+  <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-[1440px] mx-auto">
+    <!-- Extremo Izquierdo: Botón Dark Mode & Mobile Menu -->
+    <div class="flex-1 flex justify-start items-center space-x-6">
+      <button id="theme-toggle" aria-label="Toggle Appearance"
+              class="text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
+        <span class="material-symbols-outlined text-[22px]" data-icon="contrast">contrast</span>
+      </button>
+      <button aria-label="Open Menu" class="md:hidden text-secondary hover:text-accent transition-colors duration-300">
+        <span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
+      </button>
+    </div>
+
+    <!-- Centro Exacto: Enlaces de navegación -->
+    <div class="hidden md:flex flex-1 justify-center">
+      <ul class="flex space-x-10 lg:space-x-12 font-secondary text-[11px] tracking-[0.25em] uppercase text-main">
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html">Inicio</a></li>
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="galeria.html">Galería</a></li>
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="taller.html">Taller</a></li>
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="clases.html">Clases</a></li>
+        <!-- Pestaña "Contacto" activa con color de acento -->
+        <li><a class="nav-link pb-1 text-accent border-b border-accent" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <!-- Extremo Derecho: Logotipo Tipográfico -->
+    <div class="flex-1 flex justify-end">
+      <a href="index.html" class="font-primary italic text-lg md:text-xl text-title font-normal tracking-[0.06em] hover:opacity-80 transition-opacity">Natalia Martínez</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Imagen de Fondo Oculta (Aparece con JS Hover Reveal) -->
+<div id="hover-reveal-img" class="fixed inset-0 z-0 pointer-events-none transition-all duration-[1.5s] ease-in-out opacity-0 scale-105">
+  <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1920&q=80"
+       alt="Fondo taller revelado"
+       class="w-full h-full object-cover grayscale-[30%] sepia-[20%] mix-blend-luminosity opacity-15 md:opacity-20" />
+  <div class="absolute inset-0 bg-background/60"></div>
+</div>
+
+<!-- Main Content - Diseño Minimalista Centrado -->
+<main class="relative z-10 flex-grow flex flex-col items-center justify-center pt-32 pb-24 px-6 min-h-screen">
+
+  <div class="text-center w-full max-w-5xl mx-auto reveal-up opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+
+    <p class="font-secondary text-accent text-[10px] md:text-[11px] tracking-[0.3em] uppercase mb-8 md:mb-10">
+      Piezas a medida & Asesorías
+    </p>
+
+    <!-- Párrafo introductorio -->
+    <p class="font-body text-[15px] md:text-[17px] text-main max-w-lg mx-auto mb-10 md:mb-16 leading-relaxed opacity-90">
+      Cada obra nace de una conversación. Si deseas una joya personalizada, alianzas de matrimonio o tienes consultas sobre el taller de orfebrería, escríbeme directamente.
+    </p>
+
+    <!-- Correo Electrónico Gigante (Interactivo) -->
+    <a href="mailto:hola@nataliamartinez.cl"
+       id="main-email-link"
+       class="inline-block font-primary italic text-4xl md:text-6xl lg:text-[5.5rem] text-title leading-tight mb-16 md:mb-24 hover:text-accent transition-colors duration-500 relative group">
+      hola@nataliamartinez.cl
+      <!-- Línea inferior sutil en Hover -->
+      <span class="absolute -bottom-2 left-1/2 w-0 h-[1px] bg-accent transition-all duration-700 ease-out group-hover:w-full group-hover:left-0"></span>
+    </a>
+
+    <!-- Datos de contacto secundarios -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-3xl mx-auto border-t border-secondary/30 pt-12 md:pt-16">
+
+      <!-- WhatsApp -->
+      <div class="flex flex-col items-center space-y-3">
+        <span class="font-secondary text-secondary text-[9px] tracking-[0.2em] uppercase">Mensajería Directa</span>
+        <a href="https://wa.me/56900000000" target="_blank" rel="noopener" class="font-body text-main text-[15px] md:text-[16px] hover:text-accent transition-colors duration-300">
+          +56 9 0000 0000
+        </a>
+      </div>
+
+      <!-- Redes / Portafolio -->
+      <div class="flex flex-col items-center space-y-3">
+        <span class="font-secondary text-secondary text-[9px] tracking-[0.2em] uppercase">Procesos & Diario</span>
+        <a href="#" target="_blank" rel="noopener" class="font-body text-main text-[15px] md:text-[16px] hover:text-accent transition-colors duration-300">
+          @nataliamartinez.cl
+        </a>
+      </div>
+
+      <!-- Ubicación -->
+      <div class="flex flex-col items-center space-y-3">
+        <span class="font-secondary text-secondary text-[9px] tracking-[0.2em] uppercase">El Taller</span>
+        <span class="font-body text-main text-[15px] md:text-[16px]">
+                    Providencia, Santiago <br><span class="text-[12px] opacity-70 italic font-primary">(Con cita previa)</span>
+                </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="relative z-10 w-full bg-background/90 backdrop-blur-sm border-t border-secondary/30 pt-16 pb-12 transition-colors duration-300 mt-auto">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center px-6 md:px-12 max-w-[1440px] mx-auto text-center md:text-left">
+    <div class="font-primary italic text-3xl text-title md:justify-self-start">
+      Natalia Martínez
+    </div>
+    <div class="font-body text-[13px] text-main opacity-80 md:justify-self-center">
+      © 2024 Natalia Martínez. Orfebrería Sustentable.
+    </div>
+    <ul class="flex justify-center md:justify-end space-x-8 font-secondary text-[10px] tracking-[0.2em] uppercase text-main">
+      <li><a class="hover:text-accent transition-colors duration-300" href="#">Instagram</a></li>
+      <li><a class="hover:text-accent transition-colors duration-300" href="#">Pinterest</a></li>
+      <li><a class="hover:text-accent transition-colors duration-300" href="#">Términos</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Lógica JavaScript -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    // 1. ANIMACIÓN DE ENTRADA (FADE IN UP)
+    const revealEl = document.querySelector('.reveal-up');
+    // Pequeño timeout para asegurar que el DOM haya pintado primero y se vea la transición
+    setTimeout(() => {
+      if(revealEl) {
+        revealEl.classList.remove('opacity-0', 'translate-y-10');
+        revealEl.classList.add('opacity-100', 'translate-y-0');
+      }
+    }, 100);
+
+    // 2. MAGIA DE DISEÑO: EFECTO HOVER REVEAL EN EL BACKGROUND
+    const emailLink = document.getElementById('main-email-link');
+    const bgReveal = document.getElementById('hover-reveal-img');
+
+    if (emailLink && bgReveal) {
+      // Al entrar el mouse
+      emailLink.addEventListener('mouseenter', () => {
+        // Quitamos opacidad 0, agregamos la opacidad visible y restauramos el escalado al 100%
+        bgReveal.classList.remove('opacity-0', 'scale-105');
+        bgReveal.classList.add('opacity-100', 'scale-100');
+      });
+
+      // Al sacar el mouse
+      emailLink.addEventListener('mouseleave', () => {
+        // Volvemos a ocultar e inflar suavemente
+        bgReveal.classList.remove('opacity-100', 'scale-100');
+        bgReveal.classList.add('opacity-0', 'scale-105');
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

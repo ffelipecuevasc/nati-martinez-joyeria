@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Clases y Programas - Natalia Martínez | Orfebrería Sustentable</title>
+
+  <!-- Hoja de Estilos CSS -->
+  <link rel="stylesheet" href="./static/css/output/tailwind.css"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-secondary transition-colors duration-300">
+  <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-[1440px] mx-auto">
+    <!-- Extremo Izquierdo: Botón Dark Mode & Mobile Menu -->
+    <div class="flex-1 flex justify-start items-center space-x-6">
+      <button id="theme-toggle" aria-label="Toggle Appearance"
+              class="text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
+        <span class="material-symbols-outlined text-[22px]" data-icon="contrast">contrast</span>
+      </button>
+      <button aria-label="Open Menu" class="md:hidden text-secondary hover:text-accent transition-colors duration-300">
+        <span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
+      </button>
+    </div>
+
+    <!-- Centro Exacto: Enlaces de navegación -->
+    <div class="hidden md:flex flex-1 justify-center">
+      <ul class="flex space-x-10 lg:space-x-12 font-secondary text-[11px] tracking-[0.25em] uppercase text-main">
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html">Inicio</a></li>
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="galeria.html">Galería</a></li>
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="taller.html">Taller</a></li>
+        <!-- Pestaña "Clases" activa con color de acento -->
+        <li><a class="nav-link pb-1 text-accent border-b border-accent" href="clases.html">Clases</a></li>
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </div>
+
+    <!-- Extremo Derecho: Logotipo Tipográfico -->
+    <div class="flex-1 flex justify-end">
+      <a href="index.html" class="font-primary italic text-lg md:text-xl text-title font-normal tracking-[0.06em] hover:opacity-80 transition-opacity">Natalia Martínez</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="flex-grow pt-32 md:pt-40 pb-24">
+
+  <!-- Header Clases -->
+  <header class="text-center px-6 max-w-4xl mx-auto mb-20 md:mb-32 reveal-up opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+    <p class="font-secondary text-accent text-[10px] tracking-[0.3em] uppercase mb-6">Transmisión del Oficio</p>
+    <h1 class="font-primary italic text-5xl md:text-7xl text-title leading-[1.1] mb-8">
+      Programas de Estudio
+    </h1>
+    <p class="font-body text-[16px] md:text-[18px] leading-relaxed text-main max-w-2xl mx-auto">
+      Cursos diseñados desde la lentitud y el respeto por la materia. Aprende las técnicas ancestrales de la orfebrería en un ambiente de creación consciente, donde cada alumno desarrolla su propia voz a través del metal.
+    </p>
+  </header>
+
+  <!-- Contenedor Principal de Tarjetas Editoriales -->
+  <div class="max-w-[1280px] mx-auto px-6 md:px-12 space-y-16 md:space-y-24">
+
+    <!-- BLOQUE 1: INICIACIÓN -->
+    <article class="reveal-up opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+      <div class="bg-secondary/5 border border-secondary/20 p-8 md:p-16 flex flex-col xl:flex-row gap-12 xl:gap-20">
+
+        <!-- Columna de Texto Editorial (70%) -->
+        <div class="flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <span class="w-8 h-[1px] bg-accent inline-block"></span>
+              <span class="font-secondary text-accent text-[10px] tracking-[0.2em] uppercase">Nivel 01</span>
+            </div>
+            <h2 class="font-primary italic text-4xl md:text-5xl text-title mb-8">Iniciación al Metal</h2>
+
+            <!-- Sub-Grid Interno para separar concepto y tecnicismos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mb-12">
+              <!-- Narrativa -->
+              <div class="font-body text-main text-[15px] leading-relaxed space-y-4 opacity-90">
+                <p>El primer contacto con el banco de joyero. Este programa está diseñado para quienes nunca han sostenido una herramienta de orfebrería. Aprenderás a dialogar con el metal, perdiendo el miedo al fuego y al martillo.</p>
+                <p>Nos enfocaremos en las cuatro columnas del oficio: calado, limado, forja básica y soldadura. Al finalizar, habrás diseñado y construido tu primer set de argollas en cobre y plata.</p>
+              </div>
+              <!-- Datos Técnicos -->
+              <ul class="font-body text-[13px] text-main space-y-5 border-l border-secondary/30 pl-6 md:pl-10">
+                <li><strong class="font-secondary uppercase tracking-[0.1em] text-[10px] text-title block mb-1">Duración</strong> 4 Módulos (1 mes) - 3 horas por sesión.</li>
+                <li><strong class="font-secondary uppercase tracking-[0.1em] text-[10px] text-title block mb-1">Materiales</strong> Incluye cobre y bronce de práctica. Plata 925 disponible en el taller.</li>
+                <li><strong class="font-secondary uppercase tracking-[0.1em] text-[10px] text-title block mb-1">Requisitos</strong> Ninguno. Solo paciencia y ganas de crear.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <a href="#contacto" class="inline-flex items-center font-secondary text-[10px] uppercase tracking-[0.2em] text-title border-b border-title pb-2 hover:text-accent hover:border-accent transition-colors group">
+              Solicitar Temario Completo
+              <span class="material-symbols-outlined text-[14px] ml-3 transform group-hover:translate-x-2 transition-transform">east</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna de Imagen Asimétrica (30%) -->
+        <figure class="xl:w-2/5 aspect-square xl:aspect-[3/4] relative group overflow-hidden bg-background">
+          <img class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 grayscale-[20%] sepia-[15%] mix-blend-luminosity group-hover:mix-blend-normal"
+               src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=800&q=80"
+               alt="Herramientas básicas de orfebrería" loading="lazy" />
+          <!-- Sutil velo para integrar con el fondo -->
+          <div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+        </figure>
+      </div>
+    </article>
+
+    <!-- BLOQUE 2: TÉCNICAS AVANZADAS (Layout invertido visualmente en Desktop) -->
+    <article class="reveal-up opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+      <div class="bg-secondary/5 border border-secondary/20 p-8 md:p-16 flex flex-col xl:flex-row-reverse gap-12 xl:gap-20">
+
+        <!-- Columna de Texto Editorial (70%) -->
+        <div class="flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-start xl:justify-end gap-4 mb-6">
+              <span class="font-secondary text-accent text-[10px] tracking-[0.2em] uppercase xl:order-1">Nivel 02</span>
+              <span class="w-8 h-[1px] bg-accent inline-block xl:order-2"></span>
+            </div>
+            <h2 class="font-primary italic text-4xl md:text-5xl text-title mb-8 xl:text-right">Volumen & Engastes</h2>
+
+            <!-- Sub-Grid Interno -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mb-12">
+              <!-- Datos Técnicos (Izquierda en este diseño) -->
+              <ul class="font-body text-[13px] text-main space-y-5 border-l xl:border-l-0 xl:border-r border-secondary/30 pl-6 xl:pl-0 xl:pr-10 xl:text-right order-2 md:order-1">
+                <li><strong class="font-secondary uppercase tracking-[0.1em] text-[10px] text-title block mb-1">Duración</strong> 8 Módulos (2 meses) - 4 horas por sesión.</li>
+                <li><strong class="font-secondary uppercase tracking-[0.1em] text-[10px] text-title block mb-1">Enfoque</strong> Soldaduras múltiples, pátinas complejas y engaste en bisel.</li>
+                <li><strong class="font-secondary uppercase tracking-[0.1em] text-[10px] text-title block mb-1">Requisitos</strong> Haber cursado Iniciación o enviar portafolio de piezas previas.</li>
+              </ul>
+              <!-- Narrativa (Derecha en este diseño) -->
+              <div class="font-body text-main text-[15px] leading-relaxed space-y-4 opacity-90 order-1 md:order-2">
+                <p>Para quienes ya dominan el calado y la soldadura simple, este módulo invita a elevar las piezas a una tercera dimensión. El enfoque central es la precisión técnica y la integración de piedras naturales.</p>
+                <p>Aprenderemos a construir cajas precisas para cabujones, técnicas de texturizado orgánico mediante reticulación y fusión de polvo de plata, dándole a tu trabajo un carácter de obra de autor.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="xl:text-right">
+            <a href="#contacto" class="inline-flex items-center font-secondary text-[10px] uppercase tracking-[0.2em] text-title border-b border-title pb-2 hover:text-accent hover:border-accent transition-colors group xl:flex-row-reverse">
+              Solicitar Temario Completo
+              <span class="material-symbols-outlined text-[14px] mr-0 ml-3 xl:ml-0 xl:mr-3 transform group-hover:translate-x-2 xl:group-hover:-translate-x-2 transition-transform xl:rotate-180">east</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna de Imagen Asimétrica (30%) -->
+        <figure class="xl:w-2/5 aspect-square xl:aspect-[3/4] relative group overflow-hidden bg-background">
+          <img class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 grayscale-[20%] sepia-[15%] mix-blend-luminosity group-hover:mix-blend-normal object-center"
+               src="https://images.unsplash.com/photo-1590842364273-030990a463d1?auto=format&fit=crop&w=800&q=80"
+               alt="Trabajo de volumen en metal" loading="lazy" />
+          <div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+        </figure>
+      </div>
+    </article>
+
+    <!-- BLOQUE 3: TALLER LIBRE -->
+    <article class="reveal-up opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+      <div class="bg-secondary/5 border border-secondary/20 p-8 md:p-16 flex flex-col xl:flex-row gap-12 xl:gap-20">
+
+        <!-- Columna de Texto Editorial (70%) -->
+        <div class="flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <span class="w-8 h-[1px] bg-accent inline-block"></span>
+              <span class="font-secondary text-accent text-[10px] tracking-[0.2em] uppercase">Nivel 03</span>
+            </div>
+            <h2 class="font-primary italic text-4xl md:text-5xl text-title mb-8">Taller Libre & Mentoría</h2>
+
+            <!-- Sub-Grid Interno -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mb-12">
+              <!-- Narrativa -->
+              <div class="font-body text-main text-[15px] leading-relaxed space-y-4 opacity-90">
+                <p>Un ecosistema pensado para creadores independientes. Si ya tienes los conocimientos técnicos pero careces del espacio o la maquinaria pesada, el taller abre sus puertas bajo un sistema de membresía.</p>
+                <p>Desarrolla tu propia línea de joyería o proyectos específicos con mi asesoría técnica puntual. Es un espacio de intercambio y comunidad donde conviven la independencia creativa y el apoyo mutuo.</p>
+              </div>
+              <!-- Datos Técnicos -->
+              <ul class="font-body text-[13px] text-main space-y-5 border-l border-secondary/30 pl-6 md:pl-10">
+                <li><strong class="font-secondary uppercase tracking-[0.1em] text-[10px] text-title block mb-1">Modalidad</strong> Membresía mensual (Cupos limitados).</li>
+                <li><strong class="font-secondary uppercase tracking-[0.1em] text-[10px] text-title block mb-1">Beneficios</strong> Acceso completo a laminadora, pulidora, sopletes, trefiladoras y herramientas de banco.</li>
+                <li><strong class="font-secondary uppercase tracking-[0.1em] text-[10px] text-title block mb-1">Requisitos</strong> Entrevista previa e independencia técnica comprobada.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <a href="#contacto" class="inline-flex items-center font-secondary text-[10px] uppercase tracking-[0.2em] text-title border-b border-title pb-2 hover:text-accent hover:border-accent transition-colors group">
+              Consultar Disponibilidad
+              <span class="material-symbols-outlined text-[14px] ml-3 transform group-hover:translate-x-2 transition-transform">east</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna de Imagen Asimétrica (30%) -->
+        <figure class="xl:w-2/5 aspect-square xl:aspect-[3/4] relative group overflow-hidden bg-background">
+          <img class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 grayscale-[20%] sepia-[15%] mix-blend-luminosity group-hover:mix-blend-normal object-top"
+               src="https://images.unsplash.com/photo-1598925509748-0ebba8be3999?auto=format&fit=crop&w=800&q=80"
+               alt="Mesa de orfebre" loading="lazy" />
+          <div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+        </figure>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-background border-t border-secondary pt-16 pb-12 transition-colors duration-300 mt-12">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center px-6 md:px-12 max-w-[1440px] mx-auto text-center md:text-left">
+    <div class="font-primary italic text-3xl text-title md:justify-self-start">
+      Natalia Martínez
+    </div>
+    <div class="font-body text-[13px] text-main opacity-80 md:justify-self-center">
+      © 2024 Natalia Martínez. Orfebrería Sustentable.
+    </div>
+    <ul class="flex justify-center md:justify-end space-x-8 font-secondary text-[10px] tracking-[0.2em] uppercase text-main">
+      <li><a class="hover:text-accent transition-colors duration-300" href="#">Instagram</a></li>
+      <li><a class="hover:text-accent transition-colors duration-300" href="#">Pinterest</a></li>
+      <li><a class="hover:text-accent transition-colors duration-300" href="#">Términos</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Lógica JavaScript (Intersection Observer - Scroll Reveal) -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1 // Aparece cuando el 10% de la tarjeta es visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          // Efecto de aparición hacia arriba (Fade In + Slide Up)
+          el.classList.remove('opacity-0', 'translate-y-16');
+          el.classList.add('opacity-100', 'translate-y-0');
+
+          // Se deja de observar para optimizar recursos tras animar
+          observer.unobserve(el);
+        }
+      });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.reveal-up');
+    animatedElements.forEach(el => observer.observe(el));
+  });
+</script>
+
+</body>
+</html>

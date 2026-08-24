@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Galería - Natalia Martínez | Orfebrería Sustentable</title>
+
+  <!-- Hoja de Estilos CSS -->
+  <link rel="stylesheet" href="./static/css/output/tailwind.css"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-secondary transition-colors duration-300">
+  <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-[1440px] mx-auto">
+    <!-- Extremo Izquierdo: Botón Dark Mode & Mobile Menu -->
+    <div class="flex-1 flex justify-start items-center space-x-6">
+      <button id="theme-toggle" aria-label="Toggle Appearance"
+              class="text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
+        <span class="material-symbols-outlined text-[22px]" data-icon="contrast">contrast</span>
+      </button>
+      <button aria-label="Open Menu" class="md:hidden text-secondary hover:text-accent transition-colors duration-300">
+        <span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
+      </button>
+    </div>
+
+    <!-- Centro Exacto: Enlaces de navegación -->
+    <div class="hidden md:flex flex-1 justify-center">
+      <ul class="flex space-x-10 lg:space-x-12 font-secondary text-[11px] tracking-[0.25em] uppercase text-main">
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html">Inicio</a></li>
+        <!-- Pestaña "Galería" activa con color de acento -->
+        <li><a class="nav-link pb-1 text-accent border-b border-accent" href="galeria.html">Galería</a></li>
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html#taller">Taller</a></li>
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html#clases">Clases</a></li>
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </div>
+
+    <!-- Extremo Derecho: Logotipo Tipográfico -->
+    <div class="flex-1 flex justify-end">
+      <a href="index.html" class="font-primary italic text-lg md:text-xl text-title font-normal tracking-[0.06em] hover:opacity-80 transition-opacity">Natalia Martínez</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Wrapper: Split Screen Layout -->
+<main class="relative w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row pt-[72px] lg:pt-0">
+
+  <!-- Columna Izquierda (Fija/Sticky en Desktop) -->
+  <aside class="lg:w-2/5 lg:h-screen lg:sticky lg:top-0 flex flex-col justify-center px-8 lg:px-16 pt-20 pb-12 lg:py-0 border-b lg:border-b-0 lg:border-r border-secondary/30 bg-background z-10">
+    <div>
+      <p class="font-secondary text-accent text-[10px] tracking-[0.3em] uppercase mb-6 flex items-center">
+        <span class="w-8 h-[1px] bg-accent mr-4 inline-block"></span>
+        Archivo 2024
+      </p>
+      <h1 class="font-primary italic text-5xl lg:text-7xl text-title leading-[1.1] mb-8">
+        Exhibición <br> de Autor
+      </h1>
+      <p class="font-body text-[15px] leading-relaxed text-main max-w-sm mb-12">
+        Un recorrido visual a través de piezas únicas forjadas a mano. Cada obra es el resultado de un diálogo íntimo con metales reciclados, texturas orgánicas y el indómito paisaje chileno.
+      </p>
+
+      <!-- Barra de progreso de scroll (Solo Desktop) -->
+      <div class="hidden lg:block w-3/4 max-w-[200px]">
+        <div class="flex justify-between font-secondary text-[9px] uppercase tracking-[0.2em] text-secondary mb-3">
+          <span>Recorrido</span>
+          <span id="scroll-percentage">0%</span>
+        </div>
+        <div class="h-[1px] w-full bg-secondary/30 relative">
+          <div id="scroll-progress" class="absolute top-0 left-0 h-full bg-accent transition-all duration-100 ease-out w-0"></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Columna Derecha (Scroll Vertical con Intersection Observer) -->
+  <section class="lg:w-3/5 px-6 lg:px-20 py-16 lg:py-32 space-y-24 lg:space-y-40">
+
+    <!-- Obra 1 -->
+    <article class="gallery-item opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+      <figure class="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden group bg-secondary/10 cursor-crosshair">
+        <img class="w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-110 grayscale-[20%] sepia-[15%] group-hover:grayscale-0 group-hover:sepia-0 mix-blend-luminosity group-hover:mix-blend-normal"
+             src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1000&q=80"
+             alt="Anillo texturizado" loading="eager"/>
+      </figure>
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-6 gap-2">
+        <div>
+          <h2 class="font-primary italic text-3xl text-title">Génesis</h2>
+          <p class="font-secondary text-[10px] tracking-[0.2em] uppercase text-secondary mt-1">Anillo / Plata 950 Fundida</p>
+        </div>
+        <button class="border-b border-transparent hover:border-accent text-main hover:text-accent transition-colors font-secondary text-[9px] uppercase tracking-[0.2em] pb-1">
+          Consultar Pieza
+        </button>
+      </div>
+    </article>
+
+    <!-- Obra 2 -->
+    <article class="gallery-item opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+      <figure class="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden group bg-secondary/10 cursor-crosshair">
+        <img class="w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-110 grayscale-[20%] sepia-[15%] group-hover:grayscale-0 group-hover:sepia-0 mix-blend-luminosity group-hover:mix-blend-normal"
+             src="https://images.unsplash.com/photo-1599643478514-46b1fd0726d4?auto=format&fit=crop&w=1000&q=80"
+             alt="Colgante con piedra" loading="lazy"/>
+      </figure>
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-6 gap-2">
+        <div>
+          <h2 class="font-primary italic text-3xl text-title">Tierra Nómada</h2>
+          <p class="font-secondary text-[10px] tracking-[0.2em] uppercase text-secondary mt-1">Colgante / Cobre & Piedra Luna</p>
+        </div>
+        <button class="border-b border-transparent hover:border-accent text-main hover:text-accent transition-colors font-secondary text-[9px] uppercase tracking-[0.2em] pb-1">
+          Consultar Pieza
+        </button>
+      </div>
+    </article>
+
+    <!-- Obra 3 -->
+    <article class="gallery-item opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+      <figure class="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden group bg-secondary/10 cursor-crosshair">
+        <img class="w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-110 grayscale-[20%] sepia-[15%] group-hover:grayscale-0 group-hover:sepia-0 mix-blend-luminosity group-hover:mix-blend-normal"
+             src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1000&q=80"
+             alt="Aros de oro" loading="lazy"/>
+      </figure>
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-6 gap-2">
+        <div>
+          <h2 class="font-primary italic text-3xl text-title">Luz de Viento</h2>
+          <p class="font-secondary text-[10px] tracking-[0.2em] uppercase text-secondary mt-1">Aros / Oro 18k Forjado</p>
+        </div>
+        <button class="border-b border-transparent hover:border-accent text-main hover:text-accent transition-colors font-secondary text-[9px] uppercase tracking-[0.2em] pb-1">
+          Consultar Pieza
+        </button>
+      </div>
+    </article>
+
+    <!-- Obra 4 -->
+    <article class="gallery-item opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+      <figure class="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden group bg-secondary/10 cursor-crosshair">
+        <img class="w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-110 grayscale-[20%] sepia-[15%] group-hover:grayscale-0 group-hover:sepia-0 mix-blend-luminosity group-hover:mix-blend-normal object-[center_30%]"
+             src="https://images.unsplash.com/photo-1573408301145-b98d41e361b9?auto=format&fit=crop&w=1000&q=80"
+             alt="Brazalete" loading="lazy"/>
+      </figure>
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-6 gap-2">
+        <div>
+          <h2 class="font-primary italic text-3xl text-title">Erosión</h2>
+          <p class="font-secondary text-[10px] tracking-[0.2em] uppercase text-secondary mt-1">Brazalete / Bronce Texturizado</p>
+        </div>
+        <button class="border-b border-transparent hover:border-accent text-main hover:text-accent transition-colors font-secondary text-[9px] uppercase tracking-[0.2em] pb-1">
+          Consultar Pieza
+        </button>
+      </div>
+    </article>
+
+    <!-- Final Call to Action dentro del Scroll -->
+    <article class="gallery-item opacity-0 translate-y-16 transition-all duration-1000 ease-out text-center pt-20 pb-10 border-t border-secondary/30">
+      <h3 class="font-primary italic text-4xl lg:text-5xl text-title mb-6">¿Deseas una pieza personalizada?</h3>
+      <p class="font-body text-main text-[15px] max-w-md mx-auto mb-10">Agenda una sesión en el taller para diseñar juntos una joya que cuente tu propia historia.</p>
+      <a href="index.html#contacto" class="inline-block border border-secondary text-main hover:bg-main hover:text-background font-secondary text-[11px] px-12 py-5 uppercase tracking-[0.2em] transition-colors duration-300">
+        Agendar Cita
+      </a>
+    </article>
+
+  </section>
+</main>
+
+<!-- Lógica JavaScript (Vanilla JS - Alto Rendimiento) -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    // 1. INTERSECTION OBSERVER (Fade In & Slide Up al Scrollear)
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15 // Se activa cuando el 15% de la imagen es visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Remueve clases ocultas y restaura posición
+          entry.target.classList.remove('opacity-0', 'translate-y-16');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          observer.unobserve(entry.target); // Deja de observar para mejorar rendimiento
+        }
+      });
+    }, observerOptions);
+
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach(item => {
+      observer.observe(item);
+    });
+
+    // 2. SCROLL PROGRESS BAR (Lógica matemática del Scroll en columna izquierda)
+    const progressBar = document.getElementById('scroll-progress');
+    const progressText = document.getElementById('scroll-percentage');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+      // Calculamos el porcentaje
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+      if(progressBar) {
+        progressBar.style.width = `${scrollPercent}%`;
+      }
+      if(progressText) {
+        progressText.innerText = `${Math.round(scrollPercent)}%`;
+      }
+    });
+
+    // Opcional: Lógica del botón de Tema Oscuro si no usas el módulo global
+    // Si tu index.js gestiona el toggle globalmente, puedes enlazarlo aquí.
+    // <script type="module" src="./static/js/index.js"><\/script>
+  });
+</script>
+
+</body>
+</html>
