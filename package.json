@@ -2,10 +2,10 @@
   "name": "nati-martinez-joyeria",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "dev": "tailwindcss -i static/css/input/styles.css -o static/css/output/tailwind.css --watch",
-    "build": "tailwindcss -i static/css/input/styles.css -o static/css/output/tailwind.css --minify"
+    "dev": "tailwindcss -i ./static/css/input/styles.css -o ./static/css/output/tailwind.css --watch",
+    "build": "tailwindcss -i ./static/css/input/styles.css -o ./static/css/output/tailwind.css --minify"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "^11.5.0",
+      "version": "11.5.0",
       "onFail": "download"
     }
   },

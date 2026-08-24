@@ -6,7 +6,7 @@
     <title>Natalia Martínez - Orfebrería Sustentable</title>
 
     <!-- Hoja de Estilos CSS -->
-    <link rel="stylesheet" href="/dist/tailwind.css">
+    <link rel="stylesheet" href="./static/css/output/tailwind.css"/>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -243,27 +243,8 @@
     </div>
 </footer>
 
-<!-- Script para Activar la Transición Diagonal al cambiar a Modo Oscuro -->
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const toggleBtn = document.getElementById("theme-toggle");
-
-        function switchTheme() {
-            document.documentElement.classList.toggle("dark");
-        }
-
-        toggleBtn.addEventListener("click", () => {
-            // Verifica si el navegador soporta View Transitions API
-            if (!document.startViewTransition) {
-                switchTheme();
-                return;
-            }
-
-            // Dispara la transición (y ejecuta el switch)
-            document.startViewTransition(switchTheme);
-        });
-    });
-</script>
+<!-- Andamiaje JavaScript (ES Modules) -->
+<script type="module" src="./static/js/index.js"></script>
 
 </body>
 </html>
