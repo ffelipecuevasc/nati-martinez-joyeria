@@ -12,7 +12,7 @@ export default {
         title: "rgb(var(--color-title) / <alpha-value>)",
       },
       fontFamily: {
-        primary: ['"Cormorant Garamond"', "serif"],
+        primary: ['"Playfair Display"', "serif"],
         secondary: ["Cinzel", "serif"],
         body: ["Montserrat", "sans-serif"],
       },
