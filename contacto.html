@@ -15,6 +15,7 @@
 
   <!-- Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
 
@@ -52,7 +53,7 @@
 </nav>
 
 <!-- Imagen de Fondo Oculta (Aparece con JS Hover Reveal) -->
-<div id="hover-reveal-img" class="fixed inset-0 z-0 pointer-events-none transition-all duration-[1.5s] ease-in-out opacity-0 scale-105">
+<div id="hover-reveal-img" class="hover-reveal fixed inset-0 z-0 pointer-events-none">
   <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1920&q=80"
        alt="Fondo taller revelado"
        class="w-full h-full object-cover grayscale-[30%] sepia-[20%] mix-blend-luminosity opacity-15 md:opacity-20" />
@@ -62,7 +63,7 @@
 <!-- Main Content - Diseño Minimalista Centrado -->
 <main class="relative z-10 flex-grow flex flex-col items-center justify-center pt-32 pb-24 px-6 min-h-screen">
 
-  <div class="text-center w-full max-w-5xl mx-auto reveal-up opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+  <div class="text-center w-full max-w-5xl mx-auto reveal reveal--up">
 
     <p class="font-secondary text-accent text-[10px] md:text-[11px] tracking-[0.3em] uppercase mb-8 md:mb-10">
       Piezas a medida & Asesorías
@@ -133,40 +134,8 @@
 </footer>
 
 <!-- Lógica JavaScript -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-
-    // 1. ANIMACIÓN DE ENTRADA (FADE IN UP)
-    const revealEl = document.querySelector('.reveal-up');
-    // Pequeño timeout para asegurar que el DOM haya pintado primero y se vea la transición
-    setTimeout(() => {
-      if(revealEl) {
-        revealEl.classList.remove('opacity-0', 'translate-y-10');
-        revealEl.classList.add('opacity-100', 'translate-y-0');
-      }
-    }, 100);
-
-    // 2. MAGIA DE DISEÑO: EFECTO HOVER REVEAL EN EL BACKGROUND
-    const emailLink = document.getElementById('main-email-link');
-    const bgReveal = document.getElementById('hover-reveal-img');
-
-    if (emailLink && bgReveal) {
-      // Al entrar el mouse
-      emailLink.addEventListener('mouseenter', () => {
-        // Quitamos opacidad 0, agregamos la opacidad visible y restauramos el escalado al 100%
-        bgReveal.classList.remove('opacity-0', 'scale-105');
-        bgReveal.classList.add('opacity-100', 'scale-100');
-      });
-
-      // Al sacar el mouse
-      emailLink.addEventListener('mouseleave', () => {
-        // Volvemos a ocultar e inflar suavemente
-        bgReveal.classList.remove('opacity-100', 'scale-100');
-        bgReveal.classList.add('opacity-0', 'scale-105');
-      });
-    }
-  });
-</script>
+<!-- Andamiaje JavaScript (ES Modules) -->
+<script type="module" src="./static/js/index.js"></script>
 
 </body>
 </html>

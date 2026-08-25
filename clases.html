@@ -15,6 +15,7 @@
 
   <!-- Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
 
@@ -40,7 +41,7 @@
         <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="taller.html">Taller</a></li>
         <!-- Pestaña "Clases" activa con color de acento -->
         <li><a class="nav-link pb-1 text-accent border-b border-accent" href="clases.html">Clases</a></li>
-        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html#contacto">Contacto</a></li>
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="contacto.html">Contacto</a></li>
       </ul>
     </div>
 
@@ -55,7 +56,7 @@
 <main class="flex-grow pt-32 md:pt-40 pb-24">
 
   <!-- Header Clases -->
-  <header class="text-center px-6 max-w-4xl mx-auto mb-20 md:mb-32 reveal-up opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+  <header class="text-center px-6 max-w-4xl mx-auto mb-20 md:mb-32 reveal reveal--up">
     <p class="font-secondary text-accent text-[10px] tracking-[0.3em] uppercase mb-6">Transmisión del Oficio</p>
     <h1 class="font-primary italic text-5xl md:text-7xl text-title leading-[1.1] mb-8">
       Programas de Estudio
@@ -69,7 +70,7 @@
   <div class="max-w-[1280px] mx-auto px-6 md:px-12 space-y-16 md:space-y-24">
 
     <!-- BLOQUE 1: INICIACIÓN -->
-    <article class="reveal-up opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+    <article class="reveal reveal--up">
       <div class="bg-secondary/5 border border-secondary/20 p-8 md:p-16 flex flex-col xl:flex-row gap-12 xl:gap-20">
 
         <!-- Columna de Texto Editorial (70%) -->
@@ -117,7 +118,7 @@
     </article>
 
     <!-- BLOQUE 2: TÉCNICAS AVANZADAS (Layout invertido visualmente en Desktop) -->
-    <article class="reveal-up opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+    <article class="reveal reveal--up">
       <div class="bg-secondary/5 border border-secondary/20 p-8 md:p-16 flex flex-col xl:flex-row-reverse gap-12 xl:gap-20">
 
         <!-- Columna de Texto Editorial (70%) -->
@@ -164,7 +165,7 @@
     </article>
 
     <!-- BLOQUE 3: TALLER LIBRE -->
-    <article class="reveal-up opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+    <article class="reveal reveal--up">
       <div class="bg-secondary/5 border border-secondary/20 p-8 md:p-16 flex flex-col xl:flex-row gap-12 xl:gap-20">
 
         <!-- Columna de Texto Editorial (70%) -->
@@ -231,32 +232,8 @@
 </footer>
 
 <!-- Lógica JavaScript (Intersection Observer - Scroll Reveal) -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1 // Aparece cuando el 10% de la tarjeta es visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          // Efecto de aparición hacia arriba (Fade In + Slide Up)
-          el.classList.remove('opacity-0', 'translate-y-16');
-          el.classList.add('opacity-100', 'translate-y-0');
-
-          // Se deja de observar para optimizar recursos tras animar
-          observer.unobserve(el);
-        }
-      });
-    }, observerOptions);
-
-    const animatedElements = document.querySelectorAll('.reveal-up');
-    animatedElements.forEach(el => observer.observe(el));
-  });
-</script>
+<!-- Andamiaje JavaScript (ES Modules) -->
+<script type="module" src="./static/js/index.js"></script>
 
 </body>
 </html>

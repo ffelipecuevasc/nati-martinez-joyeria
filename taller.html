@@ -15,6 +15,7 @@
 
     <!-- Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
 
@@ -40,7 +41,7 @@
                 <!-- Pestaña "Taller" activa con color de acento -->
                 <li><a class="nav-link pb-1 text-accent border-b border-accent" href="taller.html">Taller</a></li>
                 <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html#clases">Clases</a></li>
-                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html#contacto">Contacto</a></li>
+                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="contacto.html">Contacto</a></li>
             </ul>
         </div>
 
@@ -55,7 +56,7 @@
 <main class="flex-grow pt-32 md:pt-40 pb-20">
 
     <!-- Header Taller -->
-    <header class="text-center px-6 max-w-3xl mx-auto mb-24 md:mb-32 reveal-up opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+    <header class="text-center px-6 max-w-3xl mx-auto mb-24 md:mb-32 reveal reveal--up">
         <p class="font-secondary text-accent text-[10px] tracking-[0.3em] uppercase mb-6">Manifiesto</p>
         <h1 class="font-primary italic text-5xl md:text-7xl text-title leading-[1.1] mb-8">
             El Taller
@@ -72,7 +73,7 @@
         <section class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center">
 
             <!-- Columna Texto (Aparece desde la Izquierda) -->
-            <div class="md:col-span-6 order-2 md:order-1 flex flex-col justify-center space-y-8 reveal-left opacity-0 -translate-x-16 transition-all duration-1000 ease-out">
+            <div class="md:col-span-6 order-2 md:order-1 flex flex-col justify-center space-y-8 reveal reveal--left">
                 <div>
                     <span class="font-secondary text-accent text-[9px] tracking-[0.2em] uppercase mb-4 block">01. La Filosofía</span>
                     <h2 class="font-primary italic text-4xl md:text-5xl text-title">Forjando la Identidad</h2>
@@ -88,7 +89,7 @@
             </div>
 
             <!-- Columna Imagen (Aparece desde la Derecha) -->
-            <div class="md:col-span-6 order-1 md:order-2 relative group reveal-right opacity-0 translate-x-16 transition-all duration-1000 ease-out delay-200">
+            <div class="md:col-span-6 order-1 md:order-2 relative group reveal reveal--right reveal--delay-2">
                 <div class="relative w-full aspect-[4/5] overflow-hidden bg-secondary/10">
                     <img class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 grayscale-[20%] sepia-[15%] dark:sepia-[10%] dark:opacity-85 mix-blend-luminosity dark:mix-blend-normal"
                          alt="Herramientas de orfebrería sobre la mesa de trabajo"
@@ -99,7 +100,7 @@
         </section>
 
         <!-- PULL QUOTE EDITORIAL (Pausa visual) -->
-        <aside class="py-12 md:py-20 text-center px-4 reveal-up opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+        <aside class="py-12 md:py-20 text-center px-4 reveal reveal--up">
             <span class="material-symbols-outlined text-[40px] text-accent mb-6 opacity-50">format_quote</span>
             <h3 class="font-primary italic text-3xl md:text-5xl text-title max-w-4xl mx-auto leading-tight md:leading-[1.2]">
                 "La huella del martillo no es un error que deba borrarse; es la firma viva del artesano grabada en la eternidad del metal."
@@ -110,7 +111,7 @@
         <section class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center">
 
             <!-- Columna Imagen (Aparece desde la Izquierda) -->
-            <div class="md:col-span-6 order-1 relative group reveal-left opacity-0 -translate-x-16 transition-all duration-1000 ease-out">
+            <div class="md:col-span-6 order-1 relative group reveal reveal--left">
                 <div class="relative w-full aspect-[4/5] overflow-hidden bg-secondary/10">
                     <img class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 grayscale-[20%] sepia-[15%] dark:sepia-[10%] dark:opacity-85 mix-blend-luminosity dark:mix-blend-normal object-center"
                          alt="Fundición de metales en el taller"
@@ -120,7 +121,7 @@
             </div>
 
             <!-- Columna Texto (Aparece desde la Derecha) -->
-            <div class="md:col-span-6 order-2 flex flex-col justify-center space-y-8 reveal-right opacity-0 translate-x-16 transition-all duration-1000 ease-out delay-200">
+            <div class="md:col-span-6 order-2 flex flex-col justify-center space-y-8 reveal reveal--right reveal--delay-2">
                 <div>
                     <span class="font-secondary text-accent text-[9px] tracking-[0.2em] uppercase mb-4 block">02. La Materia Prima</span>
                     <h2 class="font-primary italic text-4xl md:text-5xl text-title">Ciclos Sustentables</h2>
@@ -143,7 +144,7 @@
         <section class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center">
 
             <!-- Columna Texto (Aparece desde la Izquierda) -->
-            <div class="md:col-span-6 order-2 md:order-1 flex flex-col justify-center space-y-8 reveal-left opacity-0 -translate-x-16 transition-all duration-1000 ease-out">
+            <div class="md:col-span-6 order-2 md:order-1 flex flex-col justify-center space-y-8 reveal reveal--left">
                 <div>
                     <span class="font-secondary text-accent text-[9px] tracking-[0.2em] uppercase mb-4 block">03. Transmitir el Fuego</span>
                     <h2 class="font-primary italic text-4xl md:text-5xl text-title">La Enseñanza</h2>
@@ -165,7 +166,7 @@
             </div>
 
             <!-- Columna Imagen (Aparece desde la Derecha) -->
-            <div class="md:col-span-6 order-1 md:order-2 relative group reveal-right opacity-0 translate-x-16 transition-all duration-1000 ease-out delay-200">
+            <div class="md:col-span-6 order-1 md:order-2 relative group reveal reveal--right reveal--delay-2">
                 <div class="relative w-full aspect-[4/5] overflow-hidden bg-secondary/10">
                     <img class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 grayscale-[20%] sepia-[15%] dark:sepia-[10%] dark:opacity-85 mix-blend-luminosity dark:mix-blend-normal"
                          alt="Detalle de manos artesanas trabajando una joya"
@@ -196,47 +197,8 @@
 </footer>
 
 <!-- Lógica JavaScript (Vanilla JS - Multidirectional Intersection Observer) -->
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Configuramos el observador para que la animación se ejecute cuando el elemento asome un 15%
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-
-                    // Remueve las clases ocultas según la dirección de inicio
-                    el.classList.remove('opacity-0');
-
-                    if(el.classList.contains('reveal-left')) {
-                        el.classList.remove('-translate-x-16');
-                        el.classList.add('translate-x-0', 'opacity-100');
-                    }
-                    else if(el.classList.contains('reveal-right')) {
-                        el.classList.remove('translate-x-16');
-                        el.classList.add('translate-x-0', 'opacity-100');
-                    }
-                    else if(el.classList.contains('reveal-up')) {
-                        el.classList.remove('translate-y-10');
-                        el.classList.add('translate-y-0', 'opacity-100');
-                    }
-
-                    // Dejamos de observar para optimizar rendimiento tras la primera aparición
-                    observer.unobserve(el);
-                }
-            });
-        }, observerOptions);
-
-        // Capturamos todos los elementos con clases 'reveal-*'
-        const animatedElements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up');
-        animatedElements.forEach(el => observer.observe(el));
-    });
-</script>
+<!-- Andamiaje JavaScript (ES Modules) -->
+<script type="module" src="./static/js/index.js"></script>
 
 </body>
 </html>

@@ -15,6 +15,7 @@
 
   <!-- Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
 
@@ -40,7 +41,7 @@
         <li><a class="nav-link pb-1 text-accent border-b border-accent" href="galeria.html">Galería</a></li>
         <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html#taller">Taller</a></li>
         <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html#clases">Clases</a></li>
-        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html#contacto">Contacto</a></li>
+        <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="contacto.html">Contacto</a></li>
       </ul>
     </div>
 
@@ -85,7 +86,7 @@
   <section class="lg:w-3/5 px-6 lg:px-20 py-16 lg:py-32 space-y-24 lg:space-y-40">
 
     <!-- Obra 1 -->
-    <article class="gallery-item opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+    <article class="reveal reveal--up">
       <figure class="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden group bg-secondary/10 cursor-crosshair">
         <img class="w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-110 grayscale-[20%] sepia-[15%] group-hover:grayscale-0 group-hover:sepia-0 mix-blend-luminosity group-hover:mix-blend-normal"
              src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1000&q=80"
@@ -103,7 +104,7 @@
     </article>
 
     <!-- Obra 2 -->
-    <article class="gallery-item opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+    <article class="reveal reveal--up">
       <figure class="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden group bg-secondary/10 cursor-crosshair">
         <img class="w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-110 grayscale-[20%] sepia-[15%] group-hover:grayscale-0 group-hover:sepia-0 mix-blend-luminosity group-hover:mix-blend-normal"
              src="https://images.unsplash.com/photo-1599643478514-46b1fd0726d4?auto=format&fit=crop&w=1000&q=80"
@@ -121,7 +122,7 @@
     </article>
 
     <!-- Obra 3 -->
-    <article class="gallery-item opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+    <article class="reveal reveal--up">
       <figure class="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden group bg-secondary/10 cursor-crosshair">
         <img class="w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-110 grayscale-[20%] sepia-[15%] group-hover:grayscale-0 group-hover:sepia-0 mix-blend-luminosity group-hover:mix-blend-normal"
              src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1000&q=80"
@@ -139,7 +140,7 @@
     </article>
 
     <!-- Obra 4 -->
-    <article class="gallery-item opacity-0 translate-y-16 transition-all duration-1000 ease-out">
+    <article class="reveal reveal--up">
       <figure class="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden group bg-secondary/10 cursor-crosshair">
         <img class="w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-110 grayscale-[20%] sepia-[15%] group-hover:grayscale-0 group-hover:sepia-0 mix-blend-luminosity group-hover:mix-blend-normal object-[center_30%]"
              src="https://images.unsplash.com/photo-1573408301145-b98d41e361b9?auto=format&fit=crop&w=1000&q=80"
@@ -157,10 +158,10 @@
     </article>
 
     <!-- Final Call to Action dentro del Scroll -->
-    <article class="gallery-item opacity-0 translate-y-16 transition-all duration-1000 ease-out text-center pt-20 pb-10 border-t border-secondary/30">
+    <article class="reveal reveal--up text-center pt-20 pb-10 border-t border-secondary/30">
       <h3 class="font-primary italic text-4xl lg:text-5xl text-title mb-6">¿Deseas una pieza personalizada?</h3>
       <p class="font-body text-main text-[15px] max-w-md mx-auto mb-10">Agenda una sesión en el taller para diseñar juntos una joya que cuente tu propia historia.</p>
-      <a href="index.html#contacto" class="inline-block border border-secondary text-main hover:bg-main hover:text-background font-secondary text-[11px] px-12 py-5 uppercase tracking-[0.2em] transition-colors duration-300">
+      <a href="contacto.html" class="inline-block border border-secondary text-main hover:bg-main hover:text-background font-secondary text-[11px] px-12 py-5 uppercase tracking-[0.2em] transition-colors duration-300">
         Agendar Cita
       </a>
     </article>
@@ -169,56 +170,8 @@
 </main>
 
 <!-- Lógica JavaScript (Vanilla JS - Alto Rendimiento) -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-
-    // 1. INTERSECTION OBSERVER (Fade In & Slide Up al Scrollear)
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.15 // Se activa cuando el 15% de la imagen es visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Remueve clases ocultas y restaura posición
-          entry.target.classList.remove('opacity-0', 'translate-y-16');
-          entry.target.classList.add('opacity-100', 'translate-y-0');
-          observer.unobserve(entry.target); // Deja de observar para mejorar rendimiento
-        }
-      });
-    }, observerOptions);
-
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    galleryItems.forEach(item => {
-      observer.observe(item);
-    });
-
-    // 2. SCROLL PROGRESS BAR (Lógica matemática del Scroll en columna izquierda)
-    const progressBar = document.getElementById('scroll-progress');
-    const progressText = document.getElementById('scroll-percentage');
-
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-      // Calculamos el porcentaje
-      const scrollPercent = (scrollTop / scrollHeight) * 100;
-
-      if(progressBar) {
-        progressBar.style.width = `${scrollPercent}%`;
-      }
-      if(progressText) {
-        progressText.innerText = `${Math.round(scrollPercent)}%`;
-      }
-    });
-
-    // Opcional: Lógica del botón de Tema Oscuro si no usas el módulo global
-    // Si tu index.js gestiona el toggle globalmente, puedes enlazarlo aquí.
-    // <script type="module" src="./static/js/index.js"><\/script>
-  });
-</script>
+<!-- Andamiaje JavaScript (ES Modules) -->
+<script type="module" src="./static/js/index.js"></script>
 
 </body>
 </html>
