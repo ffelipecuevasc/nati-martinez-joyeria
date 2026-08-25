@@ -1,16 +1,22 @@
 /**
  * @module modules/theme/ThemeManager
- * Gestiona el estado del tema (claro / oscuro).
+ * Gestiona el estado del tema (claro / oscuro) y su persistencia.
  */
 
 /** Clase CSS que activa el modo oscuro sobre el elemento raíz. */
 const DARK_CLASS = "dark";
 
+/** Clave de almacenamiento de la preferencia del usuario. */
+const STORAGE_KEY = "theme";
+
 /**
- * Responsabilidad única: leer y aplicar el tema sobre el elemento raíz.
- * No conoce la UI (botones) ni cómo se anima el cambio. Es la "costura"
- * donde en el futuro se añadirá persistencia (localStorage) o detección de
- * preferencia del sistema, sin tocar el resto de módulos (Abierto/Cerrado).
+ * Responsabilidad única: leer, aplicar y PERSISTIR el tema sobre el elemento
+ * raíz. No conoce la UI (botones) ni cómo se anima el cambio.
+ *
+ * La aplicación *inicial* del tema ocurre en un script síncrono en el <head>
+ * (anti-parpadeo, antes del primer render). Este gestor se ocupa del cambio
+ * en tiempo de ejecución y de guardar la elección, compartiendo la misma
+ * clave (`STORAGE_KEY`).
  */
 export class ThemeManager {
     /**
@@ -30,10 +36,26 @@ export class ThemeManager {
     }
 
     /**
-     * Alterna entre el tema claro y el oscuro.
+     * Persiste la preferencia actual. Tolerante a fallos: si el navegador
+     * bloquea `localStorage` (p. ej. modo privado), no rompe la app.
+     * @param {boolean} dark
+     * @returns {void}
+     * @private
+     */
+    persist(dark) {
+        try {
+            localStorage.setItem(STORAGE_KEY, dark ? "dark" : "light");
+        } catch (e) {
+            /* almacenamiento no disponible: se ignora silenciosamente */
+        }
+    }
+
+    /**
+     * Alterna entre claro y oscuro y guarda la elección del usuario.
      * @returns {void}
      */
     toggle() {
-        this.root.classList.toggle(DARK_CLASS);
+        const dark = this.root.classList.toggle(DARK_CLASS);
+        this.persist(dark);
     }
 }

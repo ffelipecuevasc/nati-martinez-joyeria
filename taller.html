@@ -4,6 +4,19 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>El Taller - Natalia Martínez | Orfebrería Sustentable</title>
+    <!-- Anti-parpadeo: aplica el tema guardado antes del primer render -->
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem("theme");
+                var dark = stored ? stored === "dark"
+                    : matchMedia("(prefers-color-scheme: dark)").matches;
+                if (dark) document.documentElement.classList.add("dark");
+            } catch (e) {
+            }
+        })();
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="./static/img/favicon.svg">
 
     <!-- Hoja de Estilos CSS -->
@@ -12,11 +25,18 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400&display=swap"
+          rel="stylesheet">
 
     <!-- Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"/>
+    <noscript>
+        <style>.reveal {
+            opacity: 1;
+            transform: none
+        }</style>
+    </noscript>
 </head>
 <body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
 
@@ -29,7 +49,8 @@
                     class="text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[22px]" data-icon="contrast">contrast</span>
             </button>
-            <button aria-label="Open Menu" class="md:hidden text-secondary hover:text-accent transition-colors duration-300">
+            <button aria-label="Open Menu"
+                    class="md:hidden text-secondary hover:text-accent transition-colors duration-300">
                 <span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
             </button>
         </div>
@@ -37,18 +58,24 @@
         <!-- Centro Exacto: Enlaces de navegación -->
         <div class="hidden md:flex flex-1 justify-center">
             <ul class="flex space-x-10 lg:space-x-12 font-secondary text-[11px] tracking-[0.25em] uppercase text-main">
-                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html">Inicio</a></li>
-                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="galeria.html">Galería</a></li>
+                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300"
+                       href="index.html">Inicio</a></li>
+                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="galeria.html">Galería</a>
+                </li>
                 <!-- Pestaña "Taller" activa con color de acento -->
                 <li><a class="nav-link pb-1 text-accent border-b border-accent" href="taller.html">Taller</a></li>
-                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html#clases">Clases</a></li>
-                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="contacto.html">Contacto</a></li>
+                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="index.html#clases">Clases</a>
+                </li>
+                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="contacto.html">Contacto</a>
+                </li>
             </ul>
         </div>
 
         <!-- Extremo Derecho: Logotipo Tipográfico -->
         <div class="flex-1 flex justify-end">
-            <a href="index.html" class="font-primary italic text-lg md:text-xl text-title font-normal tracking-[0.06em] hover:opacity-80 transition-opacity">Natalia Martínez</a>
+            <a href="index.html"
+               class="font-primary italic text-lg md:text-xl text-title font-normal tracking-[0.06em] hover:opacity-80 transition-opacity">Natalia
+                Martínez</a>
         </div>
     </div>
 </nav>
@@ -63,7 +90,8 @@
             El Taller
         </h1>
         <p class="font-body text-[16px] md:text-[18px] leading-relaxed text-main">
-            Un espacio donde el tiempo se detiene y la materia cobra vida. Detrás de cada joya hay horas de contemplación, fuego, martillo y un profundo respeto por el oficio tradicional.
+            Un espacio donde el tiempo se detiene y la materia cobra vida. Detrás de cada joya hay horas de
+            contemplación, fuego, martillo y un profundo respeto por el oficio tradicional.
         </p>
     </header>
 
@@ -81,10 +109,14 @@
                 </div>
                 <div class="font-body text-main leading-relaxed space-y-6 text-[15px] md:text-[16px]">
                     <p>
-                        Mi aproximación a la orfebrería nace de la observación. La geografía indómita de Chile, sus cordilleras escarpadas y la crudeza de su naturaleza dictan las formas de mi trabajo. No busco la perfección geométrica y pulida de la joyería industrial; busco el alma.
+                        Mi aproximación a la orfebrería nace de la observación. La geografía indómita de Chile, sus
+                        cordilleras escarpadas y la crudeza de su naturaleza dictan las formas de mi trabajo. No busco
+                        la perfección geométrica y pulida de la joyería industrial; busco el alma.
                     </p>
                     <p>
-                        Cada golpe de martillo es deliberado. La creación manual exige una conexión mental y física total con el metal. Es un acto de paciencia y devoción donde las manos se convierten en la herramienta principal, traduciendo pensamientos abstractos en objetos tangibles y eternos.
+                        Cada golpe de martillo es deliberado. La creación manual exige una conexión mental y física
+                        total con el metal. Es un acto de paciencia y devoción donde las manos se convierten en la
+                        herramienta principal, traduciendo pensamientos abstractos en objetos tangibles y eternos.
                     </p>
                 </div>
             </div>
@@ -104,7 +136,8 @@
         <aside class="py-12 md:py-20 text-center px-4 reveal reveal--up">
             <span class="material-symbols-outlined text-[40px] text-accent mb-6 opacity-50">format_quote</span>
             <h3 class="font-primary italic text-3xl md:text-5xl text-title max-w-4xl mx-auto leading-tight md:leading-[1.2]">
-                "La huella del martillo no es un error que deba borrarse; es la firma viva del artesano grabada en la eternidad del metal."
+                "La huella del martillo no es un error que deba borrarse; es la firma viva del artesano grabada en la
+                eternidad del metal."
             </h3>
         </aside>
 
@@ -129,13 +162,18 @@
                 </div>
                 <div class="font-body text-main leading-relaxed space-y-6 text-[15px] md:text-[16px]">
                     <p>
-                        Trabajar de manera consciente significa honrar los recursos de la tierra. Mi compromiso fundamental es la sustentabilidad estructural de mis procesos.
+                        Trabajar de manera consciente significa honrar los recursos de la tierra. Mi compromiso
+                        fundamental es la sustentabilidad estructural de mis procesos.
                     </p>
                     <p>
-                        Todo el metal que ingresa al taller —plata 925, oro y cobre— proviene de canales de reciclaje o excedentes, asegurando una economía circular. Fundir retazos antiguos para crear una pieza nueva es un acto casi alquímico, donde la historia de un objeto pasado se transforma en el comienzo de un nuevo legado.
+                        Todo el metal que ingresa al taller —plata 925, oro y cobre— proviene de canales de reciclaje o
+                        excedentes, asegurando una economía circular. Fundir retazos antiguos para crear una pieza nueva
+                        es un acto casi alquímico, donde la historia de un objeto pasado se transforma en el comienzo de
+                        un nuevo legado.
                     </p>
                     <p>
-                        Además, he sustituido ácidos industriales tóxicos por compuestos orgánicos y biodegrabables para el decapado, protegiendo así nuestra tierra y el aire del taller.
+                        Además, he sustituido ácidos industriales tóxicos por compuestos orgánicos y biodegrabables para
+                        el decapado, protegiendo así nuestra tierra y el aire del taller.
                     </p>
                 </div>
             </div>
@@ -152,13 +190,19 @@
                 </div>
                 <div class="font-body text-main leading-relaxed space-y-6 text-[15px] md:text-[16px]">
                     <p>
-                        Un oficio que no se comparte está destinado a desaparecer. El taller no solo es mi refugio creativo, sino un aula abierta para quienes desean descubrir su propia voz a través de la orfebrería.
+                        Un oficio que no se comparte está destinado a desaparecer. El taller no solo es mi refugio
+                        creativo, sino un aula abierta para quienes desean descubrir su propia voz a través de la
+                        orfebrería.
                     </p>
                     <p>
-                        Diseñé las clases para ser íntimas y personalizadas. No importa si nunca has sostenido una sierra de joyero; aquí aprenderás desde la fundición inicial hasta el pulido final. Mi objetivo no es crear copias de mi trabajo, sino entregarte la técnica necesaria para que tus propias ideas tomen cuerpo en el metal.
+                        Diseñé las clases para ser íntimas y personalizadas. No importa si nunca has sostenido una
+                        sierra de joyero; aquí aprenderás desde la fundición inicial hasta el pulido final. Mi objetivo
+                        no es crear copias de mi trabajo, sino entregarte la técnica necesaria para que tus propias
+                        ideas tomen cuerpo en el metal.
                     </p>
                     <div class="pt-6">
-                        <a href="index.html#clases" class="inline-block border-b border-secondary text-main font-secondary text-[11px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors group">
+                        <a href="index.html#clases"
+                           class="inline-block border-b border-secondary text-main font-secondary text-[11px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors group">
                             Ver Programas de Estudio
                             <span class="material-symbols-outlined text-[16px] ml-3 transform group-hover:translate-x-2 transition-transform inline-block align-middle">east</span>
                         </a>

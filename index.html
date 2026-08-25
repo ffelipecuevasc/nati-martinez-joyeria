@@ -4,6 +4,19 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Natalia Martínez - Orfebrería Sustentable</title>
+    <!-- Anti-parpadeo: aplica el tema guardado antes del primer render -->
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem("theme");
+                var dark = stored ? stored === "dark"
+                    : matchMedia("(prefers-color-scheme: dark)").matches;
+                if (dark) document.documentElement.classList.add("dark");
+            } catch (e) {
+            }
+        })();
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="./static/img/favicon.svg">
 
     <!-- Hoja de Estilos CSS -->
@@ -44,9 +57,11 @@
                 <li><a class="nav-link pb-1 text-accent border-b border-accent" href="index.html">Inicio</a></li>
                 <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300"
                        href="galeria.html">Galería</a></li>
-                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="taller.html">Taller</a>
+                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300"
+                       href="taller.html">Taller</a>
                 </li>
-                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="clases.html">Clases</a>
+                <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300"
+                       href="clases.html">Clases</a>
                 </li>
                 <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300"
                        href="contacto.html">Contacto</a></li>
