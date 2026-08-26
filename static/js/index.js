@@ -13,6 +13,7 @@ import { initTheme } from "./modules/theme/indexTheme.js";
 import { initReveal } from "./modules/reveal/revealOnScroll.js";
 import { initScrollProgress } from "./modules/gallery/scrollProgress.js";
 import { initHoverReveal } from "./modules/contact/hoverReveal.js";
+import { initMobileMenu } from "./modules/menu/mobileMenu.js";
 
 /** Arranca los módulos de la aplicación. */
 function bootstrap() {
@@ -20,6 +21,7 @@ function bootstrap() {
     initReveal();
     initScrollProgress();
     initHoverReveal();
+    initMobileMenu();
 }
 
 if (document.readyState === "loading") {
