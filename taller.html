@@ -53,17 +53,17 @@
 <body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
 
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-secondary transition-colors duration-300">
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-hairline transition-colors duration-300">
     <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-[1440px] mx-auto">
 
         <!-- Izquierda: apariencia · separador · logotipo -->
         <div class="flex items-center">
             <button id="theme-toggle" aria-label="Cambiar apariencia"
-                    class="text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
+                    class="text-main hover:text-accent transition-colors duration-300 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[22px]" data-icon="contrast">contrast</span>
             </button>
             <!-- Separador vertical (barra visual entre apariencia y logo) -->
-            <span class="mx-4 md:mx-5 h-6 w-px bg-secondary" aria-hidden="true"></span>
+            <span class="mx-4 md:mx-5 h-6 w-px bg-hairline" aria-hidden="true"></span>
             <a href="index.html"
                class="font-primary italic text-lg md:text-xl text-title font-normal tracking-[0.06em] whitespace-nowrap hover:opacity-80 transition-opacity">Natalia
                 Martínez</a>
@@ -71,7 +71,7 @@
 
         <!-- Derecha: enlaces (escritorio) · botón menú (móvil) -->
         <div class="flex items-center">
-            <ul class="hidden md:flex space-x-10 lg:space-x-12 font-secondary text-[11px] tracking-[0.25em] uppercase text-main">
+            <ul class="hidden md:flex space-x-10 lg:space-x-12 font-secondary text-[11px] tracking-luxury-wide uppercase text-main">
                 <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300"
                        href="index.html">Inicio</a></li>
                 <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="galeria.html">Galería</a>
@@ -84,7 +84,7 @@
             </ul>
             <button id="menu-toggle" type="button" aria-label="Abrir menú"
                     aria-expanded="false" aria-controls="mobile-menu"
-                    class="md:hidden text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
+                    class="md:hidden text-main hover:text-accent transition-colors duration-300 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
             </button>
         </div>
@@ -92,7 +92,7 @@
 
     <!-- Panel de menú móvil -->
     <div id="mobile-menu" class="mobile-menu md:hidden">
-        <ul class="font-secondary text-[12px] tracking-[0.25em] uppercase text-main">
+        <ul class="font-secondary text-[12px] tracking-luxury-wide uppercase text-main">
             <li><a class="" href="index.html">Inicio</a></li>
             <li><a class="" href="galeria.html">Galería</a></li>
             <li><a class="text-accent" href="taller.html">Taller</a></li>
@@ -149,7 +149,7 @@
                     <img class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 grayscale-[20%] sepia-[15%] dark:sepia-[10%] dark:opacity-85 mix-blend-luminosity dark:mix-blend-normal"
                          alt="Herramientas de orfebrería sobre la mesa de trabajo"
                          src="https://images.unsplash.com/photo-1598925509748-0ebba8be3999?auto=format&fit=crop&w=800&q=80"/>
-                    <div class="absolute inset-0 border border-secondary/40 m-4 pointer-events-none transition-colors"></div>
+                    <div class="absolute inset-0 border border-hairline-soft m-4 pointer-events-none transition-colors"></div>
                 </div>
             </div>
         </section>
@@ -172,7 +172,7 @@
                     <img class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 grayscale-[20%] sepia-[15%] dark:sepia-[10%] dark:opacity-85 mix-blend-luminosity dark:mix-blend-normal object-center"
                          alt="Fundición de metales en el taller"
                          src="https://images.unsplash.com/photo-1590842364273-030990a463d1?auto=format&fit=crop&w=800&q=80"/>
-                    <div class="absolute inset-0 border border-secondary/40 m-4 pointer-events-none transition-colors"></div>
+                    <div class="absolute inset-0 border border-hairline-soft m-4 pointer-events-none transition-colors"></div>
                 </div>
             </div>
 
@@ -224,7 +224,7 @@
                     </p>
                     <div class="pt-6">
                         <a href="clases.html"
-                           class="inline-block border-b border-secondary text-main font-secondary text-[11px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors group">
+                           class="inline-block border-b border-hairline text-main font-secondary text-[11px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors group">
                             Ver Programas de Estudio
                             <span class="material-symbols-outlined text-[16px] ml-3 transform group-hover:translate-x-2 transition-transform inline-block align-middle">east</span>
                         </a>
@@ -238,7 +238,7 @@
                     <img class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 grayscale-[20%] sepia-[15%] dark:sepia-[10%] dark:opacity-85 mix-blend-luminosity dark:mix-blend-normal"
                          alt="Detalle de manos artesanas trabajando una joya"
                          src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=800&q=80"/>
-                    <div class="absolute inset-0 border border-secondary/40 m-4 pointer-events-none transition-colors"></div>
+                    <div class="absolute inset-0 border border-hairline-soft m-4 pointer-events-none transition-colors"></div>
                 </div>
             </div>
         </section>
@@ -247,13 +247,13 @@
 </main>
 
 <!-- Footer (Idéntico a index.html) -->
-<footer class="w-full bg-background border-t border-secondary pt-16 pb-12 transition-colors duration-300">
+<footer class="w-full bg-background border-t border-hairline pt-16 pb-12 transition-colors duration-300">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center px-6 md:px-12 max-w-[1440px] mx-auto text-center md:text-left">
         <div class="font-primary italic text-3xl text-title md:justify-self-start">
             Natalia Martínez
         </div>
         <div class="font-body text-[13px] text-main opacity-80 md:justify-self-center">
-            © 2024 Natalia Martínez. Orfebrería Sustentable.
+            © 2024 Natalia Martínez. Joyería Sustentable.
         </div>
         <ul class="flex justify-center md:justify-end space-x-8 font-secondary text-[10px] tracking-[0.2em] uppercase text-main">
             <li><a class="hover:text-accent transition-colors duration-300" href="#">Instagram</a></li>

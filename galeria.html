@@ -53,17 +53,17 @@
 <body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
 
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-secondary transition-colors duration-300">
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-hairline transition-colors duration-300">
     <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-[1440px] mx-auto">
 
         <!-- Izquierda: apariencia · separador · logotipo -->
         <div class="flex items-center">
             <button id="theme-toggle" aria-label="Cambiar apariencia"
-                    class="text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
+                    class="text-main hover:text-accent transition-colors duration-300 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[22px]" data-icon="contrast">contrast</span>
             </button>
             <!-- Separador vertical (barra visual entre apariencia y logo) -->
-            <span class="mx-4 md:mx-5 h-6 w-px bg-secondary" aria-hidden="true"></span>
+            <span class="mx-4 md:mx-5 h-6 w-px bg-hairline" aria-hidden="true"></span>
             <a href="index.html"
                class="font-primary italic text-lg md:text-xl text-title font-normal tracking-[0.06em] whitespace-nowrap hover:opacity-80 transition-opacity">Natalia
                 Martínez</a>
@@ -71,7 +71,7 @@
 
         <!-- Derecha: enlaces (escritorio) · botón menú (móvil) -->
         <div class="flex items-center">
-            <ul class="hidden md:flex space-x-10 lg:space-x-12 font-secondary text-[11px] tracking-[0.25em] uppercase text-main">
+            <ul class="hidden md:flex space-x-10 lg:space-x-12 font-secondary text-[11px] tracking-luxury-wide uppercase text-main">
                 <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300"
                        href="index.html">Inicio</a></li>
                 <li><a class="nav-link pb-1 text-accent border-b border-accent" href="galeria.html">Galería</a></li>
@@ -84,7 +84,7 @@
             </ul>
             <button id="menu-toggle" type="button" aria-label="Abrir menú"
                     aria-expanded="false" aria-controls="mobile-menu"
-                    class="md:hidden text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
+                    class="md:hidden text-main hover:text-accent transition-colors duration-300 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
             </button>
         </div>
@@ -92,7 +92,7 @@
 
     <!-- Panel de menú móvil -->
     <div id="mobile-menu" class="mobile-menu md:hidden">
-        <ul class="font-secondary text-[12px] tracking-[0.25em] uppercase text-main">
+        <ul class="font-secondary text-[12px] tracking-luxury-wide uppercase text-main">
             <li><a class="" href="index.html">Inicio</a></li>
             <li><a class="text-accent" href="galeria.html">Galería</a></li>
             <li><a class="" href="taller.html">Taller</a></li>
@@ -106,10 +106,10 @@
 <main class="relative w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row pt-[72px] lg:pt-0">
 
     <!-- Columna Izquierda (Fija/Sticky en Desktop) -->
-    <aside class="lg:w-2/5 lg:h-screen lg:sticky lg:top-0 flex flex-col justify-center px-8 lg:px-16 pt-20 pb-12 lg:py-0 border-b lg:border-b-0 lg:border-r border-secondary/30 bg-background z-10">
+    <aside class="lg:w-2/5 lg:h-screen lg:sticky lg:top-0 flex flex-col justify-center px-8 lg:px-16 pt-20 pb-12 lg:py-0 border-b lg:border-b-0 lg:border-r border-hairline-soft bg-background z-10">
         <div>
             <p class="font-secondary text-accent text-[10px] tracking-[0.3em] uppercase mb-6 flex items-center">
-                <span class="w-8 h-[1px] bg-accent mr-4 inline-block"></span>
+                <span class="w-8 h-[1px] bg-ornament mr-4 inline-block"></span>
                 Archivo 2024
             </p>
             <h1 class="font-primary italic text-5xl lg:text-7xl text-title leading-[1.1] mb-8">
@@ -122,11 +122,11 @@
 
             <!-- Barra de progreso de scroll (Solo Desktop) -->
             <div class="hidden lg:block w-3/4 max-w-[200px]">
-                <div class="flex justify-between font-secondary text-[9px] uppercase tracking-[0.2em] text-secondary mb-3">
+                <div class="flex justify-between font-secondary text-[9px] uppercase tracking-[0.2em] text-main/70 mb-3">
                     <span>Recorrido</span>
                     <span id="scroll-percentage">0%</span>
                 </div>
-                <div class="h-[1px] w-full bg-secondary/30 relative">
+                <div class="h-[1px] w-full bg-hairline-soft relative">
                     <div id="scroll-progress"
                          class="absolute top-0 left-0 h-full bg-accent transition-all duration-100 ease-out w-0"></div>
                 </div>
@@ -147,7 +147,7 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-6 gap-2">
                 <div>
                     <h2 class="font-primary italic text-3xl text-title">Génesis</h2>
-                    <p class="font-secondary text-[10px] tracking-[0.2em] uppercase text-secondary mt-1">Anillo / Plata
+                    <p class="font-secondary text-[10px] tracking-[0.2em] uppercase text-main/70 mt-1">Anillo / Plata
                         950 Fundida</p>
                 </div>
                 <button class="border-b border-transparent hover:border-accent text-main hover:text-accent transition-colors font-secondary text-[9px] uppercase tracking-[0.2em] pb-1">
@@ -166,7 +166,7 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-6 gap-2">
                 <div>
                     <h2 class="font-primary italic text-3xl text-title">Tierra Nómada</h2>
-                    <p class="font-secondary text-[10px] tracking-[0.2em] uppercase text-secondary mt-1">Colgante /
+                    <p class="font-secondary text-[10px] tracking-[0.2em] uppercase text-main/70 mt-1">Colgante /
                         Cobre & Piedra Luna</p>
                 </div>
                 <button class="border-b border-transparent hover:border-accent text-main hover:text-accent transition-colors font-secondary text-[9px] uppercase tracking-[0.2em] pb-1">
@@ -185,7 +185,7 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-6 gap-2">
                 <div>
                     <h2 class="font-primary italic text-3xl text-title">Luz de Viento</h2>
-                    <p class="font-secondary text-[10px] tracking-[0.2em] uppercase text-secondary mt-1">Aros / Oro 18k
+                    <p class="font-secondary text-[10px] tracking-[0.2em] uppercase text-main/70 mt-1">Aros / Oro 18k
                         Forjado</p>
                 </div>
                 <button class="border-b border-transparent hover:border-accent text-main hover:text-accent transition-colors font-secondary text-[9px] uppercase tracking-[0.2em] pb-1">
@@ -204,7 +204,7 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-6 gap-2">
                 <div>
                     <h2 class="font-primary italic text-3xl text-title">Erosión</h2>
-                    <p class="font-secondary text-[10px] tracking-[0.2em] uppercase text-secondary mt-1">Brazalete /
+                    <p class="font-secondary text-[10px] tracking-[0.2em] uppercase text-main/70 mt-1">Brazalete /
                         Bronce Texturizado</p>
                 </div>
                 <button class="border-b border-transparent hover:border-accent text-main hover:text-accent transition-colors font-secondary text-[9px] uppercase tracking-[0.2em] pb-1">
@@ -214,12 +214,12 @@
         </article>
 
         <!-- Final Call to Action dentro del Scroll -->
-        <article class="reveal reveal--up text-center pt-20 pb-10 border-t border-secondary/30">
+        <article class="reveal reveal--up text-center pt-20 pb-10 border-t border-hairline-soft">
             <h3 class="font-primary italic text-4xl lg:text-5xl text-title mb-6">¿Deseas una pieza personalizada?</h3>
             <p class="font-body text-main text-[15px] max-w-md mx-auto mb-10">Agenda una sesión en el taller para
                 diseñar juntos una joya que cuente tu propia historia.</p>
             <a href="contacto.html"
-               class="inline-block border border-secondary text-main hover:bg-main hover:text-background font-secondary text-[11px] px-12 py-5 uppercase tracking-[0.2em] transition-colors duration-300">
+               class="inline-block border border-hairline text-main hover:bg-main hover:text-background font-secondary text-[11px] px-12 py-5 uppercase tracking-[0.2em] transition-colors duration-300">
                 Agendar Cita
             </a>
         </article>

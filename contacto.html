@@ -53,17 +53,17 @@
 <body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
 
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-secondary transition-colors duration-300">
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-hairline transition-colors duration-300">
     <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-[1440px] mx-auto">
 
         <!-- Izquierda: apariencia · separador · logotipo -->
         <div class="flex items-center">
             <button id="theme-toggle" aria-label="Cambiar apariencia"
-                    class="text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
+                    class="text-main hover:text-accent transition-colors duration-300 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[22px]" data-icon="contrast">contrast</span>
             </button>
             <!-- Separador vertical (barra visual entre apariencia y logo) -->
-            <span class="mx-4 md:mx-5 h-6 w-px bg-secondary" aria-hidden="true"></span>
+            <span class="mx-4 md:mx-5 h-6 w-px bg-hairline" aria-hidden="true"></span>
             <a href="index.html"
                class="font-primary italic text-lg md:text-xl text-title font-normal tracking-[0.06em] whitespace-nowrap hover:opacity-80 transition-opacity">Natalia
                 Martínez</a>
@@ -71,7 +71,7 @@
 
         <!-- Derecha: enlaces (escritorio) · botón menú (móvil) -->
         <div class="flex items-center">
-            <ul class="hidden md:flex space-x-10 lg:space-x-12 font-secondary text-[11px] tracking-[0.25em] uppercase text-main">
+            <ul class="hidden md:flex space-x-10 lg:space-x-12 font-secondary text-[11px] tracking-luxury-wide uppercase text-main">
                 <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300"
                        href="index.html">Inicio</a></li>
                 <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="galeria.html">Galería</a>
@@ -84,7 +84,7 @@
             </ul>
             <button id="menu-toggle" type="button" aria-label="Abrir menú"
                     aria-expanded="false" aria-controls="mobile-menu"
-                    class="md:hidden text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
+                    class="md:hidden text-main hover:text-accent transition-colors duration-300 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
             </button>
         </div>
@@ -92,7 +92,7 @@
 
     <!-- Panel de menú móvil -->
     <div id="mobile-menu" class="mobile-menu md:hidden">
-        <ul class="font-secondary text-[12px] tracking-[0.25em] uppercase text-main">
+        <ul class="font-secondary text-[12px] tracking-luxury-wide uppercase text-main">
             <li><a class="" href="index.html">Inicio</a></li>
             <li><a class="" href="galeria.html">Galería</a></li>
             <li><a class="" href="taller.html">Taller</a></li>
@@ -116,7 +116,7 @@
     <div class="text-center w-full max-w-5xl mx-auto reveal reveal--up">
 
         <p class="font-secondary text-accent text-[10px] md:text-[11px] tracking-[0.3em] uppercase mb-8 md:mb-10">
-            Piezas a medida & Asesorías
+            Piezas a medida, Reparaciones & Asesorías
         </p>
 
         <!-- Párrafo introductorio -->
@@ -135,11 +135,11 @@
         </a>
 
         <!-- Datos de contacto secundarios -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-3xl mx-auto border-t border-secondary/30 pt-12 md:pt-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-3xl mx-auto border-t border-hairline-soft pt-12 md:pt-16">
 
             <!-- WhatsApp -->
             <div class="flex flex-col items-center space-y-3">
-                <span class="font-secondary text-secondary text-[9px] tracking-[0.2em] uppercase">Mensajería Directa</span>
+                <span class="font-secondary text-main/70 text-[9px] tracking-[0.2em] uppercase">Mensajería Directa</span>
                 <a href="https://wa.me/56900000000" target="_blank" rel="noopener"
                    class="font-body text-main text-[15px] md:text-[16px] hover:text-accent transition-colors duration-300">
                     +56 9 0000 0000
@@ -148,7 +148,7 @@
 
             <!-- Redes / Portafolio -->
             <div class="flex flex-col items-center space-y-3">
-                <span class="font-secondary text-secondary text-[9px] tracking-[0.2em] uppercase">Procesos & Diario</span>
+                <span class="font-secondary text-main/70 text-[9px] tracking-[0.2em] uppercase">Procesos & Diario</span>
                 <a href="#" target="_blank" rel="noopener"
                    class="font-body text-main text-[15px] md:text-[16px] hover:text-accent transition-colors duration-300">
                     @nataliamartinez.cl
@@ -157,7 +157,7 @@
 
             <!-- Ubicación -->
             <div class="flex flex-col items-center space-y-3">
-                <span class="font-secondary text-secondary text-[9px] tracking-[0.2em] uppercase">El Taller</span>
+                <span class="font-secondary text-main/70 text-[9px] tracking-[0.2em] uppercase">El Taller</span>
                 <span class="font-body text-main text-[15px] md:text-[16px]">
                     Providencia, Santiago <br><span
                         class="text-[12px] opacity-70 italic font-primary">(Con cita previa)</span>
@@ -171,13 +171,13 @@
 </main>
 
 <!-- Footer -->
-<footer class="relative z-10 w-full bg-background/90 backdrop-blur-sm border-t border-secondary/30 pt-16 pb-12 transition-colors duration-300 mt-auto">
+<footer class="relative z-10 w-full bg-background/90 backdrop-blur-sm border-t border-hairline-soft pt-16 pb-12 transition-colors duration-300 mt-auto">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center px-6 md:px-12 max-w-[1440px] mx-auto text-center md:text-left">
         <div class="font-primary italic text-3xl text-title md:justify-self-start">
             Natalia Martínez
         </div>
         <div class="font-body text-[13px] text-main opacity-80 md:justify-self-center">
-            © 2024 Natalia Martínez. Orfebrería Sustentable.
+            © 2024 Natalia Martínez. Joyería Sustentable.
         </div>
         <ul class="flex justify-center md:justify-end space-x-8 font-secondary text-[10px] tracking-[0.2em] uppercase text-main">
             <li><a class="hover:text-accent transition-colors duration-300" href="#">Instagram</a></li>

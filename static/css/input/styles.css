@@ -2,28 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Variables CSS para ambos temas (Soporte RGB para opacidad en Tailwind) */
+/* Variables CSS para ambos temas (Soporte RGB para opacidad en Tailwind)
+   Valores v2 mapeados desde la paleta cruda de tailwind.config.js (ver DESIGN.md §5). */
 :root {
-    --color-background: 245 241 232; /* #F5F1E8 */
-    --color-main: 41 39 37; /* #292725 */
-    --color-secondary: 183 180 174; /* #B7B4AE */
-    --color-accent: 167 101 69; /* #A76545 */
-    --color-title: 90 64 53; /* #5A4035 */
+    --color-background: 255 255 255; /* surface.light #ffffff (más blanco, pedido clienta) */
+    --color-main: 32 32 32; /* content.light.primary #202020 */
+    --color-title: 32 32 32; /* content.light.primary #202020 */
+    --color-secondary: 156 149 138; /* content.light.muted #9c958a · solo decorativo */
+    --color-accent: 125 99 64; /* brand.deep #7d6340 · 5,63:1 sobre blanco */
+    --color-ornament: 182 154 116; /* brand.base #b69a74 · solo decorativo */
+
+    /* Filetes (hairlines): opacidad del rol secondary calibrada para igualar el contraste
+       de los filetes legacy (1,83:1 · 1,25:1 · 1,12:1). Ver DESIGN.md §5.1. */
+    --hairline-alpha: 0.6;
+    --hairline-soft-alpha: 0.22;
+    --hairline-faint-alpha: 0.12;
 
     --expo-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dark {
-    --color-background: 22 20 18; /* #161412 */
-    --color-main: 230 226 216; /* #E6E2D8 */
-    --color-secondary: 74 69 64; /* #4A4540 */
-    --color-accent: 184 115 82; /* #B87352 */
-    --color-title: 203 186 176; /* #CBBAB0 */
+    --color-background: 32 32 32; /* surface.dark #202020 */
+    --color-main: 209 207 201; /* content.dark.secondary #d1cfc9 */
+    --color-title: 245 245 245; /* content.dark.primary #f5f5f5 */
+    --color-secondary: 128 126 123; /* content.dark.muted #807e7b */
+    --color-accent: 182 154 116; /* brand.base #b69a74 · 6,10:1 sobre #202020 */
+    --color-ornament: 182 154 116; /* brand.base #b69a74 */
+
+    --hairline-alpha: 0.48;
+    --hairline-soft-alpha: 0.16;
+    --hairline-faint-alpha: 0.08;
 }
 
 body {
     background-color: rgb(var(--color-background));
     overflow-x: hidden;
+}
+
+/* ============================================================
+   FILETES (hairlines) — decisión centralizada de opacidad
+   El ancho/lado lo da Tailwind (border, border-t, w-px...); estas
+   clases solo fijan el color. Estados hover:/group-hover: de
+   Tailwind siguen ganando por especificidad.
+   ============================================================ */
+.border-hairline {
+    border-color: rgb(var(--color-secondary) / var(--hairline-alpha));
+}
+
+.border-hairline-soft {
+    border-color: rgb(var(--color-secondary) / var(--hairline-soft-alpha));
+}
+
+.border-hairline-faint {
+    border-color: rgb(var(--color-secondary) / var(--hairline-faint-alpha));
+}
+
+.bg-hairline {
+    background-color: rgb(var(--color-secondary) / var(--hairline-alpha));
+}
+
+.bg-hairline-soft {
+    background-color: rgb(var(--color-secondary) / var(--hairline-soft-alpha));
 }
 
 /* Efecto Underline Animado (Adaptable al tema) */
@@ -110,7 +149,7 @@ body {
     letter-spacing: 0.008em;
 }
 
-/* ---- Selección con acento cobre ---- */
+/* ---- Selección con acento ---- */
 ::selection {
     background-color: rgb(var(--color-accent) / 0.22);
     color: rgb(var(--color-title));
@@ -185,7 +224,7 @@ body {
     filter: grayscale(0.30) sepia(0.12) brightness(0.72) contrast(1.03);
 }
 
-/* Costuras metálicas finas entre paneles (como hilo de orfebre) */
+/* Costuras metálicas finas entre paneles (como hilo de orfebre) · ornament */
 @media (min-width: 768px) {
     .hero-pane:not(:last-child)::after {
         content: "";
@@ -195,8 +234,8 @@ body {
         width: 1px;
         height: 100%;
         background: linear-gradient(to bottom,
-        transparent, rgb(var(--color-accent) / 0.55) 20%,
-        rgb(var(--color-accent) / 0.55) 80%, transparent);
+        transparent, rgb(var(--color-ornament) / 0.55) 20%,
+        rgb(var(--color-ornament) / 0.55) 80%, transparent);
         z-index: 2;
     }
 }
@@ -227,9 +266,35 @@ body {
     width: min(220px, 42vw);
     height: 1px;
     margin: 1.6rem auto 1.9rem;
-    background: linear-gradient(to right, transparent, rgb(var(--color-accent)), transparent);
+    background: linear-gradient(to right, transparent, rgb(var(--color-ornament)), transparent);
     transform-origin: center;
     animation: hero-rule-in 1.5s var(--expo-out) 0.9s both;
+}
+
+/* Retardos de entrada del texto del hero (antes en style="" en línea).
+   Van después de las utilidades de Tailwind: ganan al shorthand de animate-fade-in-up. */
+.hero-delay-1 {
+    animation-delay: 0.2s;
+}
+
+.hero-delay-2 {
+    animation-delay: 0.8s;
+}
+
+/* Viñetas decorativas "•" que enmarcan el nombre (aria-hidden en el HTML) */
+.hero-bullet {
+    display: inline-block;
+    font-size: 0.32em;
+    font-style: normal;
+    vertical-align: middle;
+}
+
+.hero-bullet:first-child {
+    margin-right: 0.9em;
+}
+
+.hero-bullet:last-child {
+    margin-left: 0.9em;
 }
 
 @keyframes hero-pane-in {
@@ -255,14 +320,14 @@ body {
 }
 
 /* ============================================================
-   BOTÓN — Relleno de cobre en barrido ascendente
+   BOTÓN — Relleno de acento en barrido ascendente
    ============================================================ */
 .btn-outline {
     position: relative;
     overflow: hidden;
     isolation: isolate;
     background-color: transparent;
-    border: 1px solid rgb(var(--color-secondary));
+    border: 1px solid rgb(var(--color-secondary) / var(--hairline-alpha));
     color: rgb(var(--color-main));
     border-radius: 0;
     transition: color 0.5s var(--expo-out), border-color 0.5s var(--expo-out);
@@ -288,7 +353,7 @@ body {
 }
 
 /* ============================================================
-   FRAME del taller — esquinas de cobre (marca de artesano)
+   FRAME del taller — esquinas de ornamento (marca de artesano)
    ============================================================ */
 .frame-craft::before,
 .frame-craft::after {
@@ -304,15 +369,15 @@ body {
 .frame-craft::before {
     top: 14px;
     left: 14px;
-    border-top: 1px solid rgb(var(--color-accent));
-    border-left: 1px solid rgb(var(--color-accent));
+    border-top: 1px solid rgb(var(--color-ornament));
+    border-left: 1px solid rgb(var(--color-ornament));
 }
 
 .frame-craft::after {
     bottom: 14px;
     right: 14px;
-    border-bottom: 1px solid rgb(var(--color-accent));
-    border-right: 1px solid rgb(var(--color-accent));
+    border-bottom: 1px solid rgb(var(--color-ornament));
+    border-right: 1px solid rgb(var(--color-ornament));
 }
 
 .group:hover .frame-craft::before {
@@ -326,7 +391,7 @@ body {
 }
 
 /* ============================================================
-   TARJETAS DE CLASES — filete de cobre que crece al pasar
+   TARJETAS DE CLASES — filete de ornamento que crece al pasar
    ============================================================ */
 .class-card {
     position: relative;
@@ -340,7 +405,7 @@ body {
     left: 0;
     height: 1px;
     width: 0;
-    background-color: rgb(var(--color-accent));
+    background-color: rgb(var(--color-ornament));
     transition: width 0.6s var(--expo-out);
 }
 
@@ -469,7 +534,7 @@ body {
     max-height: 24rem;
     opacity: 1;
     visibility: visible;
-    border-top-color: rgb(var(--color-secondary));
+    border-top-color: rgb(var(--color-secondary) / var(--hairline-alpha));
 }
 
 .mobile-menu ul {
@@ -477,7 +542,7 @@ body {
 }
 
 .mobile-menu li + li {
-    border-top: 1px solid rgb(var(--color-secondary) / 0.35);
+    border-top: 1px solid rgb(var(--color-secondary) / var(--hairline-soft-alpha));
 }
 
 .mobile-menu a {

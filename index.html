@@ -47,17 +47,17 @@
 <body class="bg-background text-main font-body font-light antialiased flex flex-col min-h-screen transition-colors duration-300">
 
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-secondary transition-colors duration-300">
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-hairline transition-colors duration-300">
     <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-[1440px] mx-auto">
 
         <!-- Izquierda: apariencia · separador · logotipo -->
         <div class="flex items-center">
             <button id="theme-toggle" aria-label="Cambiar apariencia"
-                    class="text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
+                    class="text-main hover:text-accent transition-colors duration-300 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[22px]" data-icon="contrast">contrast</span>
             </button>
             <!-- Separador vertical (barra visual entre apariencia y logo) -->
-            <span class="mx-4 md:mx-5 h-6 w-px bg-secondary" aria-hidden="true"></span>
+            <span class="mx-4 md:mx-5 h-6 w-px bg-hairline" aria-hidden="true"></span>
             <a href="index.html"
                class="font-primary italic text-lg md:text-xl text-title font-normal tracking-[0.06em] whitespace-nowrap hover:opacity-80 transition-opacity">Natalia
                 Martínez</a>
@@ -65,7 +65,7 @@
 
         <!-- Derecha: enlaces (escritorio) · botón menú (móvil) -->
         <div class="flex items-center">
-            <ul class="hidden md:flex space-x-10 lg:space-x-12 font-secondary text-[11px] tracking-[0.25em] uppercase text-main">
+            <ul class="hidden md:flex space-x-10 lg:space-x-12 font-secondary text-[11px] tracking-luxury-wide uppercase text-main">
                 <li><a class="nav-link pb-1 text-accent border-b border-accent" href="index.html">Inicio</a></li>
                 <li><a class="nav-link pb-1 hover:text-accent transition-colors duration-300" href="galeria.html">Galería</a>
                 </li>
@@ -78,7 +78,7 @@
             </ul>
             <button id="menu-toggle" type="button" aria-label="Abrir menú"
                     aria-expanded="false" aria-controls="mobile-menu"
-                    class="md:hidden text-secondary hover:text-accent transition-colors duration-300 flex items-center justify-center">
+                    class="md:hidden text-main hover:text-accent transition-colors duration-300 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
             </button>
         </div>
@@ -86,7 +86,7 @@
 
     <!-- Panel de menú móvil -->
     <div id="mobile-menu" class="mobile-menu md:hidden">
-        <ul class="font-secondary text-[12px] tracking-[0.25em] uppercase text-main">
+        <ul class="font-secondary text-[12px] tracking-luxury-wide uppercase text-main">
             <li><a class="text-accent" href="index.html">Inicio</a></li>
             <li><a class="" href="galeria.html">Galería</a></li>
             <li><a class="" href="taller.html">Taller</a></li>
@@ -123,15 +123,16 @@
 
     <!-- Contenido -->
     <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto">
-        <h1 class="hero-ink font-primary italic text-6xl md:text-[6rem] mb-2 tracking-tight leading-[0.95] opacity-0 animate-fade-in-up"
-            style="animation-delay: 0.2s;">
-            Natalia Martínez
+        <h1 class="hero-ink font-primary italic text-6xl md:text-[6rem] mb-2 tracking-tight leading-[0.95] opacity-0 animate-fade-in-up hero-delay-1">
+            <span class="hero-bullet text-ornament" aria-hidden="true">•</span>Natalia Martínez<span
+                class="hero-bullet text-ornament" aria-hidden="true">•</span>
         </h1>
         <span class="hero-rule" aria-hidden="true"></span>
-        <h2 class="hero-ink font-secondary text-sm md:text-base tracking-[0.3em] uppercase opacity-0 animate-fade-in-up"
-            style="animation-delay: 0.8s;">
-            Joyería Sustentable <span class="text-accent mx-2">&</span> Instructora Orfebre
-        </h2>
+        <p class="hero-ink flex flex-col items-center gap-3 md:gap-4 opacity-0 animate-fade-in-up hero-delay-2">
+            <span class="font-secondary text-sm md:text-base tracking-luxury-wide uppercase" lang="en">Jewelry Studio</span>
+            <span class="font-secondary text-[11px] md:text-xs tracking-luxury uppercase opacity-80">Silvestre <span
+                    class="text-ornament mx-1">&</span> Sustentable</span>
+        </p>
     </div>
 </header>
 
@@ -200,7 +201,7 @@
         <!-- Call to Action discreto -->
         <div class="mt-16 md:mt-24 text-center flex justify-center">
             <a href="contacto.html"
-               class="border-b border-secondary text-main font-secondary text-[11px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors flex items-center group">
+               class="border-b border-hairline text-main font-secondary text-[11px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors flex items-center group">
                 Explorar Catálogo Completo
                 <span class="material-symbols-outlined text-[16px] ml-3 transform group-hover:translate-x-2 transition-transform">east</span>
             </a>
@@ -218,7 +219,7 @@
                          alt="Artesana trabajando en taller"
                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCdfOMGLC2pHl3Y-mNZepNmoLTWN4Goc_3ZnxIAY6Mb0AiZiLfbbytoLmr77nwNnAaqng7SvwywQ3y7V3ETmm6W5bfco_5HU6bFwjbP8_z15hJQuamtr46XK3BdX7uaNpX1wFndBW6hHhiKiCPE7S-KTfiI-KGT0sOCN5Fq8kgZwQt6AjwetkU7Sm4BrBPRg1EMrBIQTNnPFSa5mc-rZ-qVQsiWA0DTMXDAo19SjAqLp82l1ypXZaq"/>
                     <!-- Decorational frame to add luxury feel -->
-                    <div class="absolute inset-0 border border-secondary/40 m-4 pointer-events-none transition-colors"></div>
+                    <div class="absolute inset-0 border border-hairline-soft m-4 pointer-events-none transition-colors"></div>
                 </div>
             </div>
 
@@ -243,10 +244,13 @@
                         Además de crear, mi mayor pasión es transmitir este oficio ancestral, guiando a nuevos talentos
                         a encontrar su propia voz a través del metal.
                     </p>
+                    <p>
+                        También realizo reparaciones de joyas.
+                    </p>
                 </div>
 
                 <div class="pt-6">
-                    <button class="btn-outline border border-secondary font-secondary text-[11px] px-10 py-4 uppercase tracking-[0.2em] hover:bg-main hover:text-background transition-colors duration-300">
+                    <button class="btn-outline border border-hairline font-secondary text-[11px] px-10 py-4 uppercase tracking-[0.2em] hover:bg-main hover:text-background transition-colors duration-300">
                         Conocer Más
                     </button>
                 </div>
@@ -264,67 +268,67 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             <!-- Class Card 1 -->
-            <div class="class-card flex flex-col border-t border-secondary pt-10 group">
+            <div class="class-card flex flex-col border-t border-hairline pt-10 group">
                 <h4 class="font-secondary text-xl tracking-[0.1em] text-title mb-6">Iniciación</h4>
                 <ul class="font-body text-[14px] text-main space-y-4 mb-12 flex-grow">
                     <li class="flex items-start">
-                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        <span class="w-1.5 h-1.5 bg-ornament inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
                         Fundamentos del metal
                     </li>
                     <li class="flex items-start">
-                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        <span class="w-1.5 h-1.5 bg-ornament inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
                         Uso de herramientas básicas
                     </li>
                     <li class="flex items-start">
-                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        <span class="w-1.5 h-1.5 bg-ornament inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
                         Creación de primera argolla
                     </li>
                 </ul>
-                <button class="border-b border-secondary text-main font-secondary text-[10px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors text-left flex justify-between items-center group-hover:border-accent group-hover:text-accent w-max">
+                <button class="border-b border-hairline text-main font-secondary text-[10px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors text-left flex justify-between items-center group-hover:border-accent group-hover:text-accent w-max">
                     Ver Detalles <span class="material-symbols-outlined text-[14px] ml-4">arrow_forward</span>
                 </button>
             </div>
 
             <!-- Class Card 2 -->
-            <div class="class-card flex flex-col border-t border-secondary pt-10 group">
+            <div class="class-card flex flex-col border-t border-hairline pt-10 group">
                 <h4 class="font-secondary text-xl tracking-[0.1em] text-title mb-6">Técnicas Avanzadas</h4>
                 <ul class="font-body text-[14px] text-main space-y-4 mb-12 flex-grow">
                     <li class="flex items-start">
-                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        <span class="w-1.5 h-1.5 bg-ornament inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
                         Engaste de piedras
                     </li>
                     <li class="flex items-start">
-                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        <span class="w-1.5 h-1.5 bg-ornament inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
                         Soldaduras complejas
                     </li>
                     <li class="flex items-start">
-                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        <span class="w-1.5 h-1.5 bg-ornament inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
                         Texturizados y pátinas
                     </li>
                 </ul>
-                <button class="border-b border-secondary text-main font-secondary text-[10px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors text-left flex justify-between items-center group-hover:border-accent group-hover:text-accent w-max">
+                <button class="border-b border-hairline text-main font-secondary text-[10px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors text-left flex justify-between items-center group-hover:border-accent group-hover:text-accent w-max">
                     Ver Detalles <span class="material-symbols-outlined text-[14px] ml-4">arrow_forward</span>
                 </button>
             </div>
 
             <!-- Class Card 3 -->
-            <div class="class-card flex flex-col border-t border-secondary pt-10 group">
+            <div class="class-card flex flex-col border-t border-hairline pt-10 group">
                 <h4 class="font-secondary text-xl tracking-[0.1em] text-title mb-6">Taller Libre</h4>
                 <ul class="font-body text-[14px] text-main space-y-4 mb-12 flex-grow">
                     <li class="flex items-start">
-                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        <span class="w-1.5 h-1.5 bg-ornament inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
                         Desarrollo de proyectos propios
                     </li>
                     <li class="flex items-start">
-                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        <span class="w-1.5 h-1.5 bg-ornament inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
                         Asesoría técnica personalizada
                     </li>
                     <li class="flex items-start">
-                        <span class="w-1.5 h-1.5 bg-accent inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
+                        <span class="w-1.5 h-1.5 bg-ornament inline-block mt-1.5 mr-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"></span>
                         Acceso completo a maquinaria
                     </li>
                 </ul>
-                <button class="border-b border-secondary text-main font-secondary text-[10px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors text-left flex justify-between items-center group-hover:border-accent group-hover:text-accent w-max">
+                <button class="border-b border-hairline text-main font-secondary text-[10px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors text-left flex justify-between items-center group-hover:border-accent group-hover:text-accent w-max">
                     Ver Detalles <span class="material-symbols-outlined text-[14px] ml-4">arrow_forward</span>
                 </button>
             </div>
@@ -341,7 +345,7 @@
 </main>
 
 <!-- Footer -->
-<footer class="w-full bg-background border-t border-secondary pt-16 pb-12 transition-colors duration-300">
+<footer class="w-full bg-background border-t border-hairline pt-16 pb-12 transition-colors duration-300">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center px-6 md:px-12 max-w-[1440px] mx-auto text-center md:text-left">
 
         <!-- Left: Logo -->
@@ -351,7 +355,7 @@
 
         <!-- Center: Copyright -->
         <div class="font-body text-[13px] text-main opacity-80 md:justify-self-center">
-            © 2024 Natalia Martínez. Orfebrería Sustentable.
+            © 2024 Natalia Martínez. Joyería Sustentable.
         </div>
 
         <!-- Right: Social Links -->
