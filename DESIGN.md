@@ -3,7 +3,7 @@
 > **LECTURA OBLIGATORIA** antes de tocar HTML, CSS, Tailwind o cualquier elemento visual (ver `AGENTS.md`).
 > Este documento es la fuente de verdad del diseño. Si el código y este documento discrepan, **no adivines**: pregunta al responsable del proyecto antes de decidir.
 >
-> **Estado documentado:** Fase 8 (sobre `c5e1a65`). Tailwind CSS **v3.4**.
+> **Estado documentado:** Fase 9 (sobre `e4bb91b`). Tailwind CSS **v3.4**.
 > La **paleta v2 está aplicada** (config canónica + roles de `styles.css` re-mapeados, §5). La tipografía se mantiene (Playfair / Cinzel / Montserrat, decisiones D-3 y D-4 en §11). Quedan pendientes las tareas de limpieza (§10).
 
 ---
@@ -239,7 +239,7 @@ Hero (sobre fotografía con velo): `ornament` `#b69a74` sobre el velo (≈ `#2a2
 - `:focus-visible` con anillo de acento visible en todo elemento interactivo (ya existe en `styles.css`; no eliminar ni usar `outline: none` sin sustituto).
 - `prefers-reduced-motion: reduce` desactiva animaciones y transiciones (ya implementado; todo componente nuevo debe respetarlo).
 - Un único `<h1>` por página; jerarquía de encabezados sin saltos; landmarks (`nav`, `main`, `header`, `footer`).
-- Iconos de Material Symbols: si son controles, llevan `aria-label` en el `<button>`; si son decorativos, `aria-hidden="true"`.
+- Iconos de Material Symbols: **todos** los `<span class="material-symbols-outlined">` llevan `aria-hidden="true"` (desde Fase 9). Si el icono es el único contenido de un control (apariencia, menú), el nombre accesible lo da el `aria-label` del `<button>`; si acompaña a texto visible, el texto basta. Así el lector de pantalla no lee la ligadura (`east`, `menu`…). El JS del menú solo cambia el `textContent` del span, por lo que el atributo se conserva.
 - El menú móvil mantiene `aria-expanded`, `aria-controls`, cierre con `Escape`, y `visibility: hidden` cuando está cerrado.
 - Progressive enhancement: sin JS el contenido `.reveal` y el menú móvil siguen visibles (`<noscript>` en el `<head>`).
 - Toda imagen con `alt` descriptivo (o `alt=""` si es decorativa).
@@ -258,9 +258,10 @@ Hero (sobre fotografía con velo): `ornament` `#b69a74` sobre el velo (≈ `#2a2
 
 Medidas vigentes (mobile-first):
 
-- Hero H1: `font-primary italic text-6xl md:text-[6rem] leading-[0.95] tracking-tight`, enmarcado por viñetas `•` (`.hero-bullet text-ornament`, `aria-hidden`). En móvil se parte en «• Natalia / Martínez •»: las viñetas van pegadas a la palabra (sin espacio), para que nunca queden solas en una línea.
+- Hero H1: `.hero-name font-primary italic leading-[0.95] tracking-tight`, enmarcado por viñetas `•` (`.hero-bullet text-ornament`, `aria-hidden`). Tamaño fluido `clamp(2rem, (100vw − 3rem) / 8.6, 6rem)`: «• Natalia Martínez •» (≈ 8,3 em) cabe siempre en **una** línea (36 px a 360 px, 40 px a 390 px, 84 px a 768 px) y vale 6rem (96 px) desde ~880 px. Las viñetas van pegadas a la palabra (sin espacio) como segunda protección contra viñetas huérfanas.
 - Hero, línea 2 (`<p>`, no encabezado): «Jewelry Studio» `font-secondary text-sm md:text-base tracking-luxury-wide uppercase`, con `lang="en"`.
 - Hero, línea 3: «Silvestre & Sustentable» `font-secondary text-[11px] md:text-xs tracking-luxury uppercase opacity-80`, con el `&` en `text-ornament`.
+- Correo grande (contacto): `.contact-email font-primary italic`, tamaño fluido `clamp(1.5rem, (100vw − 3rem) / 10.9, 5.5rem)` (≈ 10,6 em de ancho): 29 px a 360 px, 66 px a 768 px, 88 px desde ~1000 px; `overflow-wrap: anywhere` como red de seguridad.
 - Logotipo (nav): `font-primary italic text-lg md:text-xl tracking-[0.06em] whitespace-nowrap`
 - Enlaces de nav: `font-secondary text-[11px] tracking-luxury-wide uppercase`
 - Botones: `font-secondary text-[11px] tracking-[0.2em] uppercase`
@@ -277,6 +278,7 @@ Fuentes cargadas por Google Fonts en el `<head>` de cada página: Cinzel, Playfa
 ### 8.1 Layout
 
 - Mobile-first. El breakpoint decisivo es `md` (768 px): enlaces de nav ↔ hamburguesa; tríptico de 1 columna ↔ 3 columnas.
+- Grillas de 12 columnas (`md:grid-cols-12`): los 11 huecos suman `11 × gap`, que debe caber holgado en el ancho útil. Escalonar el gap por breakpoint: taller de `index.html` `md:gap-12 lg:gap-16 xl:gap-24`; filas de `taller.html` `md:gap-12 lg:gap-20`. Un `md:gap-24` fijo desbordaba entre 768 y ~1100 px.
 - Contenedor de la barra: `max-w-[1440px] mx-auto px-6 md:px-12`. Navbar `fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-hairline`.
 - Navegación: los enlaces apuntan a **archivos de página** (`galeria.html`, `taller.html`, `clases.html`, `contacto.html`); el logotipo enlaza a `index.html`. **Nunca** `index.html#seccion` para una página que ya existe. Página activa: `text-accent border-b border-accent` (escritorio) y `text-accent` (móvil).
 
@@ -293,6 +295,8 @@ Fuentes cargadas por Google Fonts en el `<head>` de cada página: Cinzel, Playfa
 | Enlace de nav | `.nav-link` | Subrayado animado con el color de acento |
 | Hero tríptico | `.hero`, `.hero-pane`, `.hero-veil`, `.hero-ink`, `.hero-rule` | 3 fotografías (creación · reparación · clases) con duotono cálido, costuras de ornamento entre paneles (≥ md), velo cálido temado por modo, texto en marfil |
 | Retardos del hero | `.hero-delay-1` (0.2 s) · `.hero-delay-2` (0.8 s) | Sustituyen el antiguo `style="animation-delay"`; se combinan con `animate-fade-in-up` (van después de las utilidades y ganan a su shorthand) |
+| Nombre del hero | `.hero-name` | Tamaño fluido que mantiene «• Natalia Martínez •» en una línea desde 360 px (§7) |
+| Correo grande | `.contact-email` | Tamaño fluido + `overflow-wrap: anywhere` para el correo de contacto (§7); conserva el hover-reveal (`#main-email-link`) |
 | Viñeta del hero | `.hero-bullet` | `•` decorativo a 0.32 em, centrado verticalmente junto al nombre; el color lo da `text-ornament` y siempre lleva `aria-hidden="true"` |
 | Filetes | `.border-hairline`, `.border-hairline-soft`, `.border-hairline-faint`, `.bg-hairline`, `.bg-hairline-soft` | Color de filete con opacidad centralizada por modo (§5.1) |
 | Botón contorno | `.btn-outline` | Borde de filete (`--hairline-alpha`), relleno de acento en barrido ascendente al hover |
@@ -313,7 +317,15 @@ Antes de crear un componente nuevo, revisar si uno existente cubre el caso. Los 
 - Hoy **no hay fotografías del cliente** en `static/img/` (solo `favicon.svg`); las imágenes actuales son de maqueta y remotas. Cuando lleguen las fotos, van en `./static/img/` con nombres descriptivos (`hero-creacion.jpg`, `hero-reparacion.jpg`, `hero-clases.jpg`) y **rutas relativas** (`./static/img/...`).
 - Tríptico: fotos verticales, ~1200×1600, tono cálido. Tratamiento de color unificado por CSS (`.hero-pane img`), **no** editar cada foto por separado.
 - `loading="eager"` solo en la imagen sobre el pliegue; `loading="lazy"` en el resto. Siempre `alt`.
-- Favicon: `./static/img/favicon.svg` (medallón con monograma "N", se adapta a claro/oscuro).
+- Favicon: `./static/img/favicon.svg` (medallón con monograma "N", se adapta a claro/oscuro). Paleta v2 desde Fase 9 (D-7): medallón `brand.light` `#f5efe8` / `surface.dark` `#202020`, anillo y chispa `brand.base` `#b69a74`, monograma `#202020` / `#f5f5f5`. Verificado legible a 16 px. Sus hex son la única excepción fuera de `styles.css`: un SVG usado como favicon no puede leer las variables del sitio.
+- Imágenes de maqueta remotas reemplazadas en Fase 9 (las originales daban 404). Todas de Unsplash, **Unsplash License** (uso comercial gratuito, sin atribución obligatoria):
+
+| Uso | URL base | Autor |
+|---|---|---|
+| Colgante «Tierra Nómada» (index, galería) | `images.unsplash.com/photo-1746458258667-63bf641e4db3` | Lena Laurentez |
+| Brazalete «Erosión» (galería) | `images.unsplash.com/photo-1708221235482-a6e2a807198f` | Oscar Ramirez |
+| Orfebre en su banco (clases nivel 02, taller fila 2) | `images.unsplash.com/photo-1772442125267-7640b4b5f2fe` | GN Group |
+| Mesa de trabajo con herramientas (clases nivel 03, taller fila 1) | `images.unsplash.com/photo-1659032882718-3e54e7da86ab` | Ruan Richard Rodrigues |
 
 ---
 
@@ -341,9 +353,9 @@ Resueltas en Fase 8:
 - **D-5 · Fondo oscuro — ✅ resuelta.** `surface.dark` `#202020`.
 - **D-6 · Fondo claro — ✅ resuelta (pedido de la clienta, correo del 20-09-2026).** Modo claro «más blanco»: fondo de página `surface.light` `#ffffff`. El modo oscuro no se aclara.
 
-Abiertas:
+Resuelta en Fase 9:
 
-- **D-7 · Favicon.** `static/img/favicon.svg` conserva la paleta legacy (medallón `#F5F1E8`, anillo y chispa cobre `#A76545`, monograma `#5A4035`; en oscuro `#201B18` / `#B87352` / `#E6E2D8`). Recomendación: **no** pasar el medallón a blanco (perdería silueta sobre pestañas claras); sí alinear anillo/chispa a `brand.deep`/`brand.base` y el monograma a `#202020`/`#f5f5f5`. Requiere aprobación (es un recurso gráfico de marca).
+- **D-7 · Favicon — ✅ resuelta (aprobada por el responsable).** Se mantiene el medallón crema (`brand.light`; no blanco, para conservar la silueta en pestañas claras); anillo y chispa en `brand.base`; monograma en `content.light.primary` (claro) y `content.dark.primary` (oscuro); medallón oscuro `surface.dark`. Ver §9.
 
 ---
 

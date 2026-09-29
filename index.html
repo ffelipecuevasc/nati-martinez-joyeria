@@ -54,7 +54,7 @@
         <div class="flex items-center">
             <button id="theme-toggle" aria-label="Cambiar apariencia"
                     class="text-main hover:text-accent transition-colors duration-300 flex items-center justify-center">
-                <span class="material-symbols-outlined text-[22px]" data-icon="contrast">contrast</span>
+                <span aria-hidden="true" class="material-symbols-outlined text-[22px]" data-icon="contrast">contrast</span>
             </button>
             <!-- Separador vertical (barra visual entre apariencia y logo) -->
             <span class="mx-4 md:mx-5 h-6 w-px bg-hairline" aria-hidden="true"></span>
@@ -79,7 +79,7 @@
             <button id="menu-toggle" type="button" aria-label="Abrir menú"
                     aria-expanded="false" aria-controls="mobile-menu"
                     class="md:hidden text-main hover:text-accent transition-colors duration-300 flex items-center justify-center">
-                <span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
+                <span aria-hidden="true" class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
             </button>
         </div>
     </div>
@@ -123,7 +123,7 @@
 
     <!-- Contenido -->
     <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto">
-        <h1 class="hero-ink font-primary italic text-6xl md:text-[6rem] mb-2 tracking-tight leading-[0.95] opacity-0 animate-fade-in-up hero-delay-1">
+        <h1 class="hero-ink hero-name font-primary italic mb-2 tracking-tight leading-[0.95] opacity-0 animate-fade-in-up hero-delay-1">
             <span class="hero-bullet text-ornament" aria-hidden="true">•</span>Natalia Martínez<span
                 class="hero-bullet text-ornament" aria-hidden="true">•</span>
         </h1>
@@ -169,8 +169,8 @@
             <!-- Pieza 2 (Ligeramente desfasada hacia abajo para diseño editorial) -->
             <figure class="group relative overflow-hidden aspect-[3/4] bg-secondary/10 cursor-pointer shadow-sm md:mt-16">
                 <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale-[20%] sepia-[15%] dark:sepia-[10%] dark:opacity-85 mix-blend-luminosity dark:mix-blend-normal"
-                     src="https://images.unsplash.com/photo-1599643478514-46b1fd0726d4?auto=format&fit=crop&w=800&q=80"
-                     alt="Colgante orgánico" loading="lazy"/>
+                     src="https://images.unsplash.com/photo-1746458258667-63bf641e4db3?auto=format&fit=crop&w=800&q=80"
+                     alt="Colgante de piedra translúcida sobre una bandeja de piedra y un tejido" loading="lazy"/>
 
                 <figcaption
                         class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 pointer-events-none">
@@ -203,14 +203,14 @@
             <a href="contacto.html"
                class="border-b border-hairline text-main font-secondary text-[11px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors flex items-center group">
                 Explorar Catálogo Completo
-                <span class="material-symbols-outlined text-[16px] ml-3 transform group-hover:translate-x-2 transition-transform">east</span>
+                <span aria-hidden="true" class="material-symbols-outlined text-[16px] ml-3 transform group-hover:translate-x-2 transition-transform">east</span>
             </a>
         </div>
     </section>
 
     <!-- 50/50 Section (Taller) -->
     <section class="py-32 px-6 md:px-12 max-w-[1280px] mx-auto" id="taller">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-12 lg:gap-16 xl:gap-24 items-center">
 
             <!-- Left Column: Image -->
             <div class="md:col-span-5 relative group">
@@ -285,7 +285,7 @@
                     </li>
                 </ul>
                 <button class="border-b border-hairline text-main font-secondary text-[10px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors text-left flex justify-between items-center group-hover:border-accent group-hover:text-accent w-max">
-                    Ver Detalles <span class="material-symbols-outlined text-[14px] ml-4">arrow_forward</span>
+                    Ver Detalles <span aria-hidden="true" class="material-symbols-outlined text-[14px] ml-4">arrow_forward</span>
                 </button>
             </div>
 
@@ -307,7 +307,7 @@
                     </li>
                 </ul>
                 <button class="border-b border-hairline text-main font-secondary text-[10px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors text-left flex justify-between items-center group-hover:border-accent group-hover:text-accent w-max">
-                    Ver Detalles <span class="material-symbols-outlined text-[14px] ml-4">arrow_forward</span>
+                    Ver Detalles <span aria-hidden="true" class="material-symbols-outlined text-[14px] ml-4">arrow_forward</span>
                 </button>
             </div>
 
@@ -329,7 +329,7 @@
                     </li>
                 </ul>
                 <button class="border-b border-hairline text-main font-secondary text-[10px] pb-3 uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors text-left flex justify-between items-center group-hover:border-accent group-hover:text-accent w-max">
-                    Ver Detalles <span class="material-symbols-outlined text-[14px] ml-4">arrow_forward</span>
+                    Ver Detalles <span aria-hidden="true" class="material-symbols-outlined text-[14px] ml-4">arrow_forward</span>
                 </button>
             </div>
         </div>

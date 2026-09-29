@@ -130,6 +130,7 @@ pnpm run build      # compila y minifica el CSS → static/css/output/tailwind.c
 - Modificar textos del cliente, precios o datos de contacto.
 - Borrar archivos, reescribir el historial de git o hacer push forzado.
 - Cambiar la estructura de carpetas o el flujo de despliegue.
+- Cambiar, modificar, editar el contenido de los archivos `AGENTS.md`, `DESIGN.md` y/o `README.md`.
 
 ## 9. Prohibido
 
@@ -151,21 +152,18 @@ pnpm run build      # compila y minifica el CSS → static/css/output/tailwind.c
 - Enlaces `href="#"` en el footer de las 4 páginas que lo tienen (index, taller, clases, contacto; `galeria.html` no tiene
   footer): Instagram, Pinterest y Términos (faltan las URLs reales y la página de términos). También `@nataliamartinez.cl`
   en `contacto.html` apunta a `#`, y el WhatsApp `+56 9 0000 0000` es un marcador.
-- Fotografías reales del cliente (tríptico del hero, taller, galería): hoy hay imágenes de maqueta remotas. Cuando
-  lleguen, van en `./static/img/` (ver `DESIGN.md` §9). Las imágenes remotas «Colgante orgánico» (index) y
-  `photo-1590842364273` («Trabajo de volumen en metal» en clases, «Fundición de metales» en taller) ya no cargan.
+- Fotografías reales del cliente (tríptico del hero, taller, galería): hoy hay imágenes de maqueta remotas de Unsplash
+  (las rotas se reemplazaron en la Fase 9; ver `DESIGN.md` §9). Cuando lleguen las fotos reales, van en `./static/img/`.
+  Al depender de URLs remotas, pueden volver a romperse: comprobar con una petición HTTP antes de publicar.
 - Ninguna página tiene `meta description` ni Open Graph.
 - Limpieza de tokens v2 sin uso (`font-script`, `font-nav`, `brand.light`…) y comentario «PROPUESTA» de `brand.deep` en
   `tailwind.config.js` (ya aprobado como D-1). Ver `DESIGN.md` §10.
-- Favicon con la paleta legacy (decisión D-7 en `DESIGN.md` §11).
 - Por confirmar con la clienta: «Brazalete / Bronce Texturizado» en `galeria.html` (es una pieza del portafolio, no una
   clase; no se cambió); los `<title>` de las 5 páginas y el título de `README.md` siguen con «Orfebrería Sustentable»
   (el footer ya dice «Joyería Sustentable»); el año «© 2024» del footer.
-- Desbordes horizontales previos (ocultos por `overflow-x: hidden` en `body`): el correo gigante de `contacto.html` se
-  corta a 390 px; las grillas `md:grid-cols-12` con `md:gap-24`/`md:gap-20` (taller de `index.html` y `taller.html`)
-  exceden el ancho entre 768 px y ~1100 px.
-- Iconos decorativos de Material Symbols sin `aria-hidden="true"` (flechas `east`/`arrow_forward`, `format_quote`): el
-  lector de pantalla lee el nombre de la ligadura.
+- «Taller Libre & Mentoría» (`clases.html`) y «Forjando la Identidad» (`taller.html`) usan la misma foto de maqueta
+  (mesa de trabajo); y «Iniciación» (clases), «La Enseñanza» (taller) y el hero comparten otra. Se resolverá con las
+  fotos reales.
 
 ## 12. Definición de "terminado"
 

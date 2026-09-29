@@ -281,6 +281,12 @@ body {
     animation-delay: 0.8s;
 }
 
+/* Nombre del hero: tamaño fluido para que "• Natalia Martínez •" (≈ 8,3 em de ancho)
+   quepa en UNA línea desde 360 px; alcanza 6rem (96 px) desde ~880 px de ancho. */
+.hero-name {
+    font-size: clamp(2rem, calc((100vw - 3rem) / 8.6), 6rem);
+}
+
 /* Viñetas decorativas "•" que enmarcan el nombre (aria-hidden en el HTML) */
 .hero-bullet {
     display: inline-block;
@@ -431,6 +437,16 @@ body {
 .link-email:hover {
     color: rgb(var(--color-accent));
     background-size: 100% 1px;
+}
+
+/* ============================================================
+   CORREO GRANDE (contacto) — tamaño fluido: el correo (≈ 10,6 em)
+   cabe sin recorte desde 360 px y llega a 5.5rem (88 px) en escritorio.
+   overflow-wrap: anywhere solo actúa como red de seguridad.
+   ============================================================ */
+.contact-email {
+    font-size: clamp(1.5rem, calc((100vw - 3rem) / 10.9), 5.5rem);
+    overflow-wrap: anywhere;
 }
 
 /* ============================================================

@@ -1,14 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Natalia Martínez — Orfebrería">
     <style>
-        .bg   { fill: #F5F1E8; }
-        .ring { fill: none; stroke: #A76545; }
-        .mark { fill: #5A4035; }
-        .spark{ fill: #A76545; }
+        /* Paleta v2 (DESIGN.md §4, decisión D-7). Hex permitidos: el SVG no puede leer las variables del sitio. */
+        .bg   { fill: #f5efe8; } /* brand.light: medallón crema */
+        .ring { fill: none; stroke: #b69a74; } /* brand.base */
+        .mark { fill: #202020; } /* content.light.primary */
+        .spark{ fill: #b69a74; } /* brand.base */
         @media (prefers-color-scheme: dark) {
-        .bg   { fill: #201B18; }
-        .ring { stroke: #B87352; }
-        .mark { fill: #E6E2D8; }
-        .spark{ fill: #B87352; }
+        .bg   { fill: #202020; } /* surface.dark */
+        .ring { stroke: #b69a74; }
+        .mark { fill: #f5f5f5; } /* content.dark.primary */
+        .spark{ fill: #b69a74; }
         }
     </style>
 
